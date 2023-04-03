@@ -3,12 +3,18 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.header_title {
+.header {
+  background-color: #2A2932;
+}
+
+.header_link {
   color: #f1f2f9;
-  font-weight: 800;
-  size: 32px;
+  width: 64px;
+  height: 20.8px;
   };
 
   .header__menu__opener {
     background-image: url(../public/Icons/Unionmenu_opener_logo.png);
+    width: 14px;
+    height: 8.5px;
   }
