@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 .App {
   margin: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -5,16 +7,16 @@
 
 .header {
   background-color: #2A2932;
-}
 
-.header_link {
-  color: #f1f2f9;
-  width: 64px;
-  height: 20.8px;
-  };
+  &_link {
+    color: #f1f2f9;
+    width: 64px;
+    height: 20.8px;
+  }
 
-  .header__menu__opener {
+  &__menu__opener {
     background-image: url(../public/Icons/Unionmenu_opener_logo.png);
     width: 14px;
     height: 8.5px;
   }
+}
