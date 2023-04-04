@@ -6,7 +6,7 @@
 }
 
 .header {
-  background-color: #2A2932;
+  // background-color: #2A2932;
 
   &_link {
     color: #f1f2f9;
@@ -15,8 +15,16 @@
   }
 
   &__menu__opener {
-    background-image: url(../public/Icons/Unionmenu_opener_logo.png);
-    width: 14px;
-    height: 8.5px;
+    // background-image: url(../public/Icons/Unionmenu_opener_logo.png);
+    color: #f1f2f9;
   }
+}
+
+.main {
+  height: 80vh;
+}
+
+.footer_container {
+  background-color: #2A2932;
+  color: #f1f2f9;
 }
