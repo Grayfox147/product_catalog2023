@@ -39,13 +39,27 @@
 
 .footer_container {
   background-color: #2A2932;
-  color: #f1f2f9;
 }
 
 .card {
-  width: 18rem;
+  background-color: #2A2932;
+  color: #f1f2f9;
+
+  &_text_container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_text_left {
+    color: #75767F;
+    font-weight: 700;
+  }
+
+  &_text_rigth {
+    color: #f1f2f9;
+  }
 }
 
-.like_button {
-  background-image: url('./Icons/Vector\ \(Stroke\).png');
-}
+
+// button
+// displayblock
