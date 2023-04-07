@@ -3,19 +3,33 @@ import {
   Card,
   Button,
 } from 'react-bootstrap';
-import Iphone14 from '../img/Iphone 14 Silver 128Gb.png';
+// import Iphone14 from '../img/Iphone 14 Silver 128Gb.png';
 import { FiHeart } from 'react-icons/fi';
+import { Phone } from '../pages/HomePage';
 
-export const PhoneCard: React.FC = () => {
+type PhoneCardProps = {
+phone: Phone
+};
+
+export const PhoneCard: React.FC<PhoneCardProps> = ({ phone }) => {
+  const {
+    image,
+    name,
+    price,
+    screen,
+    capacity,
+    ram,
+  }=phone;
+
   return (
     <Card className='card'>
-      <Card.Img variant='top' src={Iphone14} className='card_image'/>
+      <Card.Img variant='top' src={image} className='card_image'/>
       <Card.Body>
         <Card.Title style={{ color: "#f1f2f9" }} className='card_title'>
-          Apple iPhone 14 Pro 128GB Silver (MQ023)
+          {name}
         </Card.Title>
         <Card.Subtitle style={{ color: "#f1f2f9" }} className='card_subtitle'>
-          $999
+          {price}
         </Card.Subtitle>
         <div className='card_line'></div>
         <div className='card_text_container'>
@@ -25,9 +39,9 @@ export const PhoneCard: React.FC = () => {
             RAM
           </div>
           <div className='card_text_rigth'>
-            6.1” OLED <br />
-            128 GB <br />
-            6 GB
+            {screen}<br />
+            {capacity} <br />
+            {ram}
           </div>
         </div>
         <Button>Add to cart</Button>

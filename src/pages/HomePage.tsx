@@ -2,10 +2,28 @@ import { Header } from "../components/Header"
 import { Carousel, Container, Row, Col } from 'react-bootstrap';
 import Iphone14 from '../img/Iphone14Pro_Home-Sm.jpg';
 import Iphone142 from '../img/Iphone 14 Silver 128Gb.png';
-import { PhoneCard } from "../components/PhoneCard";
 import Footer from "../components/Footer";
+import phones from '../api/phones.json';
+import { PhoneList } from "../components/PhoneList";
+
+export interface Phone {
+  id: string,
+  category: string,
+  phoneId: string,
+  itemId: string,
+  name: string,
+  fullPrice: number,
+  price: number,
+  screen: string,
+  capacity: string,
+  color: string,
+  ram: string,
+  year: number,
+  image: string
+};
 
 export const HomePage: React.FC = () => {
+
   return (
     <>
     <h1 hidden>Product Catalog</h1>
@@ -37,7 +55,7 @@ export const HomePage: React.FC = () => {
             </Col>
           </Row>
         </Container>
-        <PhoneCard />
+        <PhoneList phones={phones} />
       </section>
     </body>
     <Footer />
