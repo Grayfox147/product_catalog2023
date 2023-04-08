@@ -6,8 +6,6 @@
 }
 
 .header {
-  // background-color: #2A2932;
-
   &_link {
     color: #f1f2f9;
     width: 64px;
@@ -15,7 +13,6 @@
   }
 
   &__menu__opener {
-    // background-image: url(../public/Icons/Unionmenu_opener_logo.png);
     color: #f1f2f9;
   }
 }
@@ -110,8 +107,4 @@
     opacity: 1;
     transition: opacity 500ms;
   }
-}
-
-.phone_list {
-  display: flex;
 }

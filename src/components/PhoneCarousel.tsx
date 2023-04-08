@@ -12,7 +12,7 @@ type PhoneCardProps = {
 phone: Phone
 };
 
-export const PhoneCard: React.FC<PhoneCardProps> = ({ phone }) => {
+export const PhoneCarousel: React.FC<PhoneCardProps> = ({ phone }) => {
   const {
     image,
     name,

@@ -5,6 +5,8 @@ import Iphone142 from '../img/Iphone 14 Silver 128Gb.png';
 import Footer from "../components/Footer";
 import phones from '../api/phones.json';
 import { PhoneList } from "../components/PhoneList";
+import { useState } from "react";
+import { PhoneCarousel } from "../components/PhoneCarousel";
 
 export interface Phone {
   id: string,
@@ -22,13 +24,33 @@ export interface Phone {
   image: string
 };
 
+const findPhoneById = (phoneId: number) => {
+  return phones.find((phone) => +(phone.id) === phoneId)
+};
+
 export const HomePage: React.FC = () => {
+  const [visiblePhone, setVisiblePhone] = useState<Phone>(phones[0]);
+  const [selectedPhoneId, setSelectedPhoneId] = useState(1);
+
+  const handleFwButton = () => {
+
+    setSelectedPhoneId((current) => current + 1);
+    let currentPhone = findPhoneById(selectedPhoneId);
+
+    if (currentPhone) {
+      setVisiblePhone(currentPhone);
+    }
+
+    // currentPhoneId + 1
+    // return phone
+
+  };
 
   return (
     <>
     <h1 hidden>Product Catalog</h1>
     <Header />
-    <body className='main'>
+    <div className='main'>
       <section>
         <h1 className='main_title'>Welcome to Nice Gadgets store!</h1>
         <Carousel>
@@ -51,13 +73,32 @@ export const HomePage: React.FC = () => {
               <h2 className='main_subtitle'>Brand new models</h2>
             </Col>
             <Col xs={4}>
-              <button>+</button>
+            <a
+            data-cy="prevLink"
+            className="card-link"
+            href="/"
+            onClick={() => {}}
+          >
+            «
+          </a>
+          <a
+            data-cy="nextLink"
+            className="card-link"
+            href="/"
+            onClick={handleFwButton}
+          >
+             »
+          </a>
             </Col>
           </Row>
         </Container>
+        <Row>
+        <PhoneCarousel phone={visiblePhone} />
+        <PhoneCarousel phone={visiblePhone} />
+        </Row>
         <PhoneList phones={phones} />
       </section>
-    </body>
+    </div>
     <Footer />
     </>
   )
