@@ -6,6 +6,9 @@ import Footer from "../components/Footer";
 import phones from '../api/phones.json';
 import { PhoneList } from "../components/PhoneList";
 import { useState } from "react";
+import IphoneGray from '../img/image 6.png';
+import IphoneGray2 from '../img/image 5.png';
+import IphoneGray3 from '../img/image 7.png';
 
 
 export interface Phone {
@@ -36,7 +39,7 @@ export const HomePage: React.FC = () => {
     <h1 hidden>Product Catalog</h1>
     <Header />
     <div className='main'>
-      <section>
+      <section data-cy="welcome and new models">
         <h1 className='main_title'>Welcome to Nice Gadgets store!</h1>
         <Carousel>
           <Carousel.Item interval={5000}>
@@ -52,25 +55,52 @@ export const HomePage: React.FC = () => {
               className='d-block w-100' />
           </Carousel.Item>
         </Carousel>
-          <div className="main_subtitle_container">
-            <h2 className='main_subtitle'>Brand new <br /> models</h2>
-            <button
-              className="link_button"
-              data-cy="prevLink"
-              onClick={() => {}}
-            >
-              «
-            </button>
-            <button
-              className="link_button"
-              data-cy="prevLink"
-              onClick={handleFwButton}
-            >
-              »
-            </button>
-          </div>
-          <PhoneList phones={visiblePhones} />
-        <h2>Shop by category</h2>
+        <div className="main_subtitle_container">
+          <h2 className='main_subtitle'>Brand new <br /> models</h2>
+          <button
+            className="link_button"
+            data-cy="prevLink"
+            onClick={() => {}}
+          >
+            «
+          </button>
+          <button
+            className="link_button"
+            data-cy="prevLink"
+            onClick={handleFwButton}
+          >
+            »
+          </button>
+        </div>
+        <PhoneList phones={visiblePhones} />
+      </section>
+      <section data-cy="shop and hot prices">
+        <h2 className="shop_subtitle">Shop by category</h2>
+        <div className="shop_box">
+          <img
+            src={IphoneGray}
+            alt="grayphone"
+            className="shop_image"
+          />
+        </div>
+        <h2 className="shop_subtitle2">Mobile phones</h2>
+        <span className="shop_subtitle3">95 models</span>
+        <div className="shop_box2">
+          <img
+            src={IphoneGray2}
+            alt="grayphone"
+            className="shop_image"
+          />
+        </div>
+        <h2 className="shop_subtitle2">Tablets</h2>
+        <span className="shop_subtitle3">24 models</span>
+        <div className="shop_box3">
+          <img
+            src={IphoneGray3}
+            alt="grayphone"
+            className="shop_image"
+          />
+        </div>
       </section>
     </div>
     <Footer />
