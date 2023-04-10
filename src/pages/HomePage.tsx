@@ -1,12 +1,12 @@
 import { Header } from "../components/Header"
-import { Carousel, Container, Row, Col } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import Iphone14 from '../img/Iphone14Pro_Home-Sm.jpg';
 import Iphone142 from '../img/Iphone 14 Silver 128Gb.png';
 import Footer from "../components/Footer";
 import phones from '../api/phones.json';
 import { PhoneList } from "../components/PhoneList";
 import { useState } from "react";
-import { PhoneCarousel } from "../components/PhoneCarousel";
+
 
 export interface Phone {
   id: string,
@@ -24,26 +24,11 @@ export interface Phone {
   image: string
 };
 
-const findPhoneById = (phoneId: number) => {
-  return phones.find((phone) => +(phone.id) === phoneId)
-};
-
 export const HomePage: React.FC = () => {
-  const [visiblePhone, setVisiblePhone] = useState<Phone>(phones[0]);
-  const [selectedPhoneId, setSelectedPhoneId] = useState(1);
+  const [visiblePhones] = useState(phones.slice(0, 7));
 
   const handleFwButton = () => {
-
-    setSelectedPhoneId((current) => current + 1);
-    let currentPhone = findPhoneById(selectedPhoneId);
-
-    if (currentPhone) {
-      setVisiblePhone(currentPhone);
-    }
-
-    // currentPhoneId + 1
-    // return phone
-
+    // onClick I should show or alter the slice method.
   };
 
   return (
@@ -67,36 +52,25 @@ export const HomePage: React.FC = () => {
               className='d-block w-100' />
           </Carousel.Item>
         </Carousel>
-        <Container>
-          <Row>
-            <Col xs={8}>
-              <h2 className='main_subtitle'>Brand new models</h2>
-            </Col>
-            <Col xs={4}>
-            <a
-            data-cy="prevLink"
-            className="card-link"
-            href="/"
-            onClick={() => {}}
-          >
-            «
-          </a>
-          <a
-            data-cy="nextLink"
-            className="card-link"
-            href="/"
-            onClick={handleFwButton}
-          >
-             »
-          </a>
-            </Col>
-          </Row>
-        </Container>
-        <Row>
-        <PhoneCarousel phone={visiblePhone} />
-        <PhoneCarousel phone={visiblePhone} />
-        </Row>
-        <PhoneList phones={phones} />
+          <div className="main_subtitle_container">
+            <h2 className='main_subtitle'>Brand new <br /> models</h2>
+            <button
+              className="link_button"
+              data-cy="prevLink"
+              onClick={() => {}}
+            >
+              «
+            </button>
+            <button
+              className="link_button"
+              data-cy="prevLink"
+              onClick={handleFwButton}
+            >
+              »
+            </button>
+          </div>
+          <PhoneList phones={visiblePhones} />
+        <h2>Shop by category</h2>
       </section>
     </div>
     <Footer />

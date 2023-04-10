@@ -4,7 +4,6 @@ import {
   Button,
   Col,
 } from 'react-bootstrap';
-// import Iphone14 from '../img/Iphone 14 Silver 128Gb.png';
 import { FiHeart } from 'react-icons/fi';
 import { Phone } from '../pages/HomePage';
 
@@ -25,12 +24,12 @@ export const PhoneCard: React.FC<PhoneCardProps> = ({ phone }) => {
   return (
     <Col className='d-flex'>
       <Card className='card flex-fill'>
-        <Card.Img variant='top' src={image} className='card_image'/>
+        <Card.Img variant='top' src={`product_catalog2023/${image}`} className='card_image'/>
         <Card.Body>
           <Card.Title style={{ color: "#f1f2f9" }} className='card_title'>
             {name}
           </Card.Title>
-          <Card.Subtitle style={{ color: "#f1f2f9" }} className='card_subtitle'>
+          <Card.Subtitle className='card_subtitle'>
             ${price}
           </Card.Subtitle>
           <div className='card_line'></div>
@@ -46,10 +45,12 @@ export const PhoneCard: React.FC<PhoneCardProps> = ({ phone }) => {
               {ram}
             </div>
           </div>
-          <Button>Add to cart</Button>
-          <button className='like_button'>
-            <FiHeart className='heart'/>
-          </button>
+          <div className='card_btn_container'>
+            <Button>Add to cart</Button>
+            <button className='like_button'>
+              <FiHeart className='heart'/>
+            </button>
+          </div>
         </Card.Body>
       </Card>
     </Col>

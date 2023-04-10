@@ -8,7 +8,7 @@ type PhonesListProps = {
 
 export const PhoneList: React.FC<PhonesListProps> = ({ phones }) => {
   return (
-    <Row lg={4} md={2} x-small={1} className="phones_list">
+    <Row lg={4} md={2} x-small={1} className="card_carousel">
       {phones.map((phone) => (
         <PhoneCard
           phone={phone}
