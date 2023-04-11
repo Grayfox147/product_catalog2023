@@ -43,6 +43,11 @@
   &_subtitle {
     margin-bottom: 8px;
     font-size: 22px;
+
+    &_container {
+      display: flex;
+      gap: 8px;
+    }
   }
 
   &_line {
@@ -117,6 +122,8 @@
     &_container {
       display: flex;
       margin-bottom: 24px;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 }

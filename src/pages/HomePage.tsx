@@ -9,7 +9,10 @@ import { useState } from "react";
 import IphoneGray from '../img/image 6.png';
 import IphoneGray2 from '../img/image 5.png';
 import IphoneGray3 from '../img/image 7.png';
+import { PhoneListWithDiscount } from "../components/PhoneListWithDiscount";
 
+const newModels = [ ...phones ].sort((a, b) => b.year - a.year);
+const hotPricesModels = [ ...phones ].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
 
 export interface Phone {
   id: string,
@@ -28,7 +31,8 @@ export interface Phone {
 };
 
 export const HomePage: React.FC = () => {
-  const [visiblePhones] = useState(phones.slice(0, 7));
+  const [newModelsPhones] = useState(newModels.slice(0, 7));
+  const [hotPricingModels] = useState(hotPricesModels.slice(0, 7));
 
   const handleFwButton = () => {
     // onClick I should show or alter the slice method.
@@ -57,22 +61,24 @@ export const HomePage: React.FC = () => {
         </Carousel>
         <div className="main_subtitle_container">
           <h2 className='main_subtitle'>Brand new <br /> models</h2>
-          <button
-            className="link_button"
-            data-cy="prevLink"
-            onClick={() => {}}
-          >
-            «
-          </button>
-          <button
-            className="link_button"
-            data-cy="prevLink"
-            onClick={handleFwButton}
-          >
-            »
-          </button>
+          <div>
+            <button
+              className="link_button"
+              data-cy="prevLink"
+              onClick={() => {}}
+            >
+              «
+            </button>
+            <button
+              className="link_button"
+              data-cy="prevLink"
+              onClick={handleFwButton}
+            >
+              »
+            </button>
+          </div>
         </div>
-        <PhoneList phones={visiblePhones} />
+        <PhoneList phones={newModelsPhones} />
       </section>
       <section data-cy="shop and hot prices">
         <h2 className="shop_subtitle">Shop by category</h2>
@@ -101,6 +107,26 @@ export const HomePage: React.FC = () => {
             className="shop_image"
           />
         </div>
+        <div className="main_subtitle_container">
+          <h2 className='main_subtitle'>Hot prices</h2>
+          <div>
+            <button
+              className="link_button"
+              data-cy="prevLink"
+              onClick={() => {}}
+            >
+              «
+            </button>
+            <button
+              className="link_button"
+              data-cy="prevLink"
+              onClick={handleFwButton}
+            >
+              »
+            </button>
+          </div>
+        </div>
+        <PhoneListWithDiscount phones={hotPricingModels} />
       </section>
     </div>
     <Footer />
