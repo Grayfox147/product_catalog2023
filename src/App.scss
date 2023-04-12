@@ -9,6 +9,9 @@
   background-color: #905BFF;
   border-color: #905BFF;
   font-size: 14px;
+  width: 100px;
+  height: 40px;
+  box-sizing: border-box;
 }
 
 .carousel-inner {
@@ -28,6 +31,7 @@
     flex-wrap: nowrap;
     width: 440px;
     height: 526px;
+    overflow: hidden;
   }
 
   &_image {
@@ -89,10 +93,33 @@
   padding: 0;
 }
 
-.footer_container {
-  background-color: #2A2932;
-}
+.footer {
+  &_container {
+    background-color: #0F1121;
+    padding: 33px 0px 33px 16px;
+  }
 
+  &_logo {
+    width: 89px;
+    height: 30.25px;
+    cursor: pointer;
+
+    &_container {
+      margin-bottom: 32px;
+    }
+  }
+
+  &_link {
+    font-weight: 800;
+    font-size: 12px;
+    color: #f1f2f9;
+    text-decoration: none;
+  }
+
+  &_subcontainer {
+    margin-bottom: 16px;
+  }
+}
 
 .header {
   &_link {
