@@ -1,4 +1,5 @@
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
+@import './mixins.scss';
 
 .App {
   margin: 0;
@@ -119,13 +120,38 @@
   &_subcontainer {
     margin-bottom: 16px;
   }
+
+  &_backlink {
+    text-decoration: none;
+    color: #75767F;
+    font-weight: 700;
+    font-size: 12px;
+    margin-right: 16px;
+
+    &_container {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+
+    &_button {
+      background-color: #323542;
+      color: #f1f2f9;
+    }
+  }
 }
 
 .header {
   &_link {
-    color: #f1f2f9;
+    color: #75767F;
     width: 64px;
     height: 20.8px;
+
+    @include onTablet {
+      font-weight: 800;
+      font-size: 12px;
+      line-height: 11px;
+    }
   }
 
   &__menu__opener {

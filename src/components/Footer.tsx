@@ -2,6 +2,7 @@ import * as React from 'react';
 // import { Container, Row, Col} from 'react-bootstrap';
 import footerLogo from '../Icons/logo__header_phone.svg';
 
+
 const Footer: React.FC = () => {
   return (
     <footer>
@@ -24,8 +25,11 @@ const Footer: React.FC = () => {
               <a href="#rigths" className='footer_link'>RIGTHS</a>
             </div>
           </div>
-          <div>
-            <a href="#backToTop" className='footer_Backlink'>Back to top</a>
+          <div className='footer_backlink_container'>
+            <a href="#backToTop" className='footer_backlink'>Back to top</a>
+            <button className='footer_backlink_button'>
+              ^
+            </button>
           </div>
       </div>
     </footer>
