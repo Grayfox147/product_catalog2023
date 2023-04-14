@@ -2,14 +2,15 @@ import { Header } from "../components/Header"
 import { Carousel } from 'react-bootstrap';
 import Iphone14 from '../img/Iphone14Pro_Home-Sm.jpg';
 import Iphone142 from '../img/Iphone 14 Silver 128Gb.png';
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import phones from '../api/phones.json';
-import { PhoneList } from "../components/PhoneList";
+import { PhoneList } from "../components/PhoneList/PhoneList";
 import { useState } from "react";
 import IphoneGray from '../img/image 6.png';
 import IphoneGray2 from '../img/image 5.png';
 import IphoneGray3 from '../img/image 7.png';
-import { PhoneListWithDiscount } from "../components/PhoneListWithDiscount";
+import { PhoneListWithDiscount } from "../components/PhoneListWDiscount/PhoneListWithDiscount";
+import { useRef } from 'react';
 
 const newModels = [ ...phones ].sort((a, b) => b.year - a.year);
 const hotPricesModels = [ ...phones ].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
@@ -33,16 +34,21 @@ export interface Phone {
 export const HomePage: React.FC = () => {
   const [newModelsPhones] = useState(newModels.slice(0, 7));
   const [hotPricingModels] = useState(hotPricesModels.slice(0, 7));
+  const backToTopRef = useRef<HTMLDivElement>(null);
 
   const handleFwButton = () => {
     // onClick I should show or alter the slice method.
+  };
+
+  const backToTopClick = () => {
+    backToTopRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
     <h1 hidden>Product Catalog</h1>
     <Header />
-    <div className='main'>
+    <div className='main' ref={backToTopRef}>
       <section data-cy="welcome and new models">
         <h1 className='main_title'>Welcome to Nice Gadgets store!</h1>
         <Carousel>
@@ -129,7 +135,7 @@ export const HomePage: React.FC = () => {
         <PhoneListWithDiscount phones={hotPricingModels} />
       </section>
     </div>
-    <Footer />
+    <Footer backToTopClick={backToTopClick} />
     </>
   )
 }

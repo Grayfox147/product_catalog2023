@@ -1,162 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
-@import './mixins.scss';
+@import '../src/Utils/mixins.scss';
+@import '../src/components/Header/Header.scss';
+@import '../src/components/PhoneCard/PhoneCard.scss';
+@import '../src/components/PhoneList/PhoneList.scss';
+@import '../src/components/Footer/Footer.scss';
 
 .App {
   margin: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.btn-primary {
-  background-color: #905BFF;
-  border-color: #905BFF;
-  font-size: 14px;
-  width: 100px;
-  height: 40px;
-  box-sizing: border-box;
-}
-
 .carousel-inner {
   margin-bottom: 68px;
-}
-
-.card {
-  background-color: #161827;
-  color: #f1f2f9;
-  padding: 32px;
-  width: 212px;
-  height: 439px;
-
-  &_carousel {
-    display: flex;
-    margin: 0 0 24px 0;
-    flex-wrap: nowrap;
-    width: 440px;
-    height: 526px;
-    overflow: hidden;
-  }
-
-  &_image {
-    margin-bottom: 24ppx;
-    border-radius: 13%;
-  }
-
-  &_title {
-    margin-bottom: 8px;
-    font-size: 14px;
-  }
-
-  &_subtitle {
-    margin-bottom: 8px;
-    font-size: 22px;
-
-    &_container {
-      display: flex;
-      gap: 8px;
-    }
-  }
-
-  &_line {
-    background-color: #3B3E4A;
-    width: 100%;
-    height: 3px;
-  }
-
-  &_text_container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-  }
-
-  &_text_left {
-    color: #75767F;
-    font-weight: 700;
-    font-size: 12px;
-  }
-
-  &_text_rigth {
-    color: #f1f2f9;
-    font-size: 12px;
-  }
-
-  &_carousel {
-    margin: 0;
-    gap: 16px;
-  }
-
-  &_btn_container {
-    justify-content: space-between;
-    display: flex;
-    padding: 0;
-  }
-}
-
-.d-flex {
-  padding: 0;
-}
-
-.footer {
-  &_container {
-    background-color: #0F1121;
-    padding: 33px 0px 33px 16px;
-  }
-
-  &_logo {
-    width: 89px;
-    height: 30.25px;
-    cursor: pointer;
-
-    &_container {
-      margin-bottom: 32px;
-    }
-  }
-
-  &_link {
-    font-weight: 800;
-    font-size: 12px;
-    color: #f1f2f9;
-    text-decoration: none;
-  }
-
-  &_subcontainer {
-    margin-bottom: 16px;
-  }
-
-  &_backlink {
-    text-decoration: none;
-    color: #75767F;
-    font-weight: 700;
-    font-size: 12px;
-    margin-right: 16px;
-
-    &_container {
-      display: flex;
-      align-content: center;
-      justify-content: center;
-    }
-
-    &_button {
-      background-color: #323542;
-      color: #f1f2f9;
-    }
-  }
-}
-
-.header {
-  &_link {
-    color: #75767F;
-    width: 64px;
-    height: 20.8px;
-
-    @include onTablet {
-      font-weight: 800;
-      font-size: 12px;
-      line-height: 11px;
-    }
-  }
-
-  &__menu__opener {
-    color: #f1f2f9;
-  }
 }
 
 .main {
@@ -181,30 +36,6 @@
   }
 }
 
-.heart {
-  color: #f1f2f9;
-  opacity: 0.3;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-
-  &:hover {
-    animation: heartbeat 1s;
-    fill: #f1f2f9;
-    color: #f1f2f9;
-    opacity: 1;
-    transition: opacity 500ms;
-  }
-}
-
-
-.like_button {
-  margin-left: 8px;
-  background-color: #323542;
-  height: 40px;
-  width: 40px;
-}
-
 .link_button {
   width: 32px;
   height: 32px;
@@ -212,17 +43,6 @@
   padding: 0.375rem;
 }
 
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.25);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 
 .shop {
   &_subtitle {

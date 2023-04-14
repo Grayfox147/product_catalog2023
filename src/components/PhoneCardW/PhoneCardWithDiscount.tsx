@@ -5,7 +5,7 @@ import {
   Col,
 } from 'react-bootstrap';
 import { FiHeart } from 'react-icons/fi';
-import { Phone } from '../pages/HomePage';
+import { Phone } from '../../pages/HomePage';
 
 type PhoneCardProps = {
 phone: Phone

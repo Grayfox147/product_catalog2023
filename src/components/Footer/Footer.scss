@@ -1,0 +1,46 @@
+.footer {
+  &_container {
+    background-color: #0F1121;
+    padding: 33px 0px 33px 16px;
+  }
+
+  &_logo {
+    width: 89px;
+    height: 30.25px;
+    cursor: pointer;
+
+    &_container {
+      margin-bottom: 32px;
+    }
+  }
+
+  &_link {
+    font-weight: 800;
+    font-size: 12px;
+    color: #f1f2f9;
+    text-decoration: none;
+  }
+
+  &_subcontainer {
+    margin-bottom: 16px;
+  }
+
+  &_backlink {
+    text-decoration: none;
+    color: #75767F;
+    font-weight: 700;
+    font-size: 12px;
+    margin-right: 16px;
+
+    &_container {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+
+    &_button {
+      background-color: #323542;
+      color: #f1f2f9;
+    }
+  }
+}

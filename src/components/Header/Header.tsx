@@ -1,4 +1,3 @@
-import React from 'react';
 import header_logo from '../../Icons/logo__header_phone.svg';
 import {
   Nav,

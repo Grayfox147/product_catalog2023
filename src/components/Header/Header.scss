@@ -1,0 +1,17 @@
+.header {
+  &_link {
+    color: #75767F;
+    width: 64px;
+    height: 20.8px;
+
+    @include onTablet {
+      font-weight: 800;
+      font-size: 12px;
+      line-height: 11px;
+    }
+  }
+
+  &__menu__opener {
+    color: #f1f2f9;
+  }
+}

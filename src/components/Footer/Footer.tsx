@@ -1,9 +1,13 @@
 import * as React from 'react';
 // import { Container, Row, Col} from 'react-bootstrap';
-import footerLogo from '../Icons/logo__header_phone.svg';
+import footerLogo from '../../Icons/logo__header_phone.svg';
 
 
-const Footer: React.FC = () => {
+type FooterProps = {
+  backToTopClick: () => void,
+};
+
+const Footer: React.FC<FooterProps> = ({ backToTopClick }) => {
   return (
     <footer>
       <div className='footer_container'>
@@ -27,7 +31,10 @@ const Footer: React.FC = () => {
           </div>
           <div className='footer_backlink_container'>
             <a href="#backToTop" className='footer_backlink'>Back to top</a>
-            <button className='footer_backlink_button'>
+            <button
+              className='footer_backlink_button'
+              onClick={backToTopClick}
+            >
               ^
             </button>
           </div>
