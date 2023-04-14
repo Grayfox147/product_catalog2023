@@ -1,8 +1,30 @@
-.header {
+.navbar {
+  &-nav {
+    @include onMobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      height: 100vh;
+    }
+
+    &-scroll {
+      overflow: hidden;
+    }
+  }
+
   &_link {
     color: #75767F;
-    width: 64px;
-    height: 20.8px;
+    border-bottom: 1px solid transparent;
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      border-color: #f1f2f9;
+    }
 
     @include onTablet {
       font-weight: 800;
@@ -11,7 +33,18 @@
     }
   }
 
-  &__menu__opener {
-    color: #f1f2f9;
+  &_full_height {
+    @include onMobile {
+      min-height: 100vh;
+      align-items: flex-start;
+    }
+  }
+
+  &_logo {
+    padding-left: 16px;
+  }
+
+  &-dark {
+    border-bottom: 1px solid #3B3E4A;
   }
 }

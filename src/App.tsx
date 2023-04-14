@@ -16,6 +16,12 @@ const App: React.FC = () => {
                 <HomePage />
               }
             />
+             <Route
+              path="*"
+              element={
+                <div>error webpage not found</div>
+              }
+            />
           </Routes>
         </main>
       </div>
