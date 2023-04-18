@@ -5,4 +5,12 @@
   width: 440px;
   height: 526px;
   overflow: hidden;
+
+  // @include onTablet {
+  //   display: flex;
+  //   height: 526px;
+  //   gap: 16px;
+  //   overflow:initial;
+  // }
+
 }
