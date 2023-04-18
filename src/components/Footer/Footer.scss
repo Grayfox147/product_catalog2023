@@ -2,6 +2,24 @@
   &_container {
     background-color: #0F1121;
     padding: 33px 0px 33px 16px;
+
+    @include onTablet {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px;
+    }
+  }
+
+  &_links {
+    @include onTablet {
+      display: flex;
+      flex-grow: 2;
+      align-content: center;
+      justify-content: center;
+      gap: 13px;
+    }
   }
 
   &_logo {
@@ -11,6 +29,9 @@
 
     &_container {
       margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      align-content: center;
     }
   }
 

@@ -4,6 +4,7 @@
 @import '../src/components/PhoneCard/PhoneCard.scss';
 @import '../src/components/PhoneList/PhoneList.scss';
 @import '../src/components/Footer/Footer.scss';
+@import '../src/Utils/variables.scss';
 
 .App {
   margin: 0;
@@ -14,18 +15,40 @@
   margin-bottom: 68px;
 }
 
+.carousel_banner {
+  @include onTablet {
+    width: 490px;
+    height: 189px;
+  }
+}
+
+.container {
+  margin: 0;
+}
+
 .main {
-  background-color: #2A2932;
+  background-color: $main-background-color;
   padding: 16px;
-  color: #f1f2f9;
+  color: $main-font-color;
 
   &_title {
     margin-bottom: 24px;
     font-weight: 800;
+    font-size: 32px;
+
+    @include onTablet {
+      font-size: 48px;
+    }
   }
+
   &_subtitle {
     font-weight: 800;
     display: inline-block;
+    font-size: 22px;
+
+    @include onTablet {
+      font-size: 32px;
+    }
 
     &_container {
       display: flex;
@@ -45,45 +68,69 @@
 
 
 .shop {
-  &_subtitle {
-    font-size: 22px;
-    margin-bottom: 24px;
+  &_title {
+    @include onTablet {
+      font-size: 32px;
+      font-weight: 800;
+    }
   }
 
-  &_subtitle2 {
+  &_title2 {
     font-size: 20px;
     margin-bottom: 4px;
   }
 
-  &_subtitle3 {
+  &_subtitle {
     font-size: 14px;
     font-weight: 600;
-    color: #75767F;
+    color: $main-subtitle-color;
     margin-bottom: 32px;
   }
 
   &_box {
     background-color: #6D6474;
-    width: 288px;
-    height: 288px;
+    width: $box-mobile;
+    height: $box-mobile;
     position: relative;
     margin-bottom: 24px;
+
+    @include onTablet {
+      width: $box-tablet;
+      height: $box-tablet;
+    }
   }
 
   &_box2 {
-    background-color: #75767F;
-    width: 288px;
-    height: 288px;
+    background-color: $main-subtitle-color;
+    width: $box-mobile;
+    height: $box-mobile;
     position: relative;
     margin-bottom: 24px;
+
+    @include onTablet {
+      width: $box-tablet;
+      height: $box-tablet;
+    }
   }
 
   &_box3 {
     background-color: #D53C51;
-    width: 288px;
-    height: 288px;
+    width: $box-mobile;
+    height: $box-mobile;
     position: relative;
     margin-bottom: 24px;
+
+    @include onTablet {
+      width: $box-tablet;
+      height: $box-tablet;
+    }
+  }
+
+  &_container {
+    @include onTablet {
+      display: flex;
+      gap: 16px;
+    }
   }
 
   &_image {
@@ -91,6 +138,8 @@
     bottom: 0;
     right: 0;
     background-repeat: no-repeat;
+    max-width: 100%;
+    max-width: 100%;
   }
 }
 

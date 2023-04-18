@@ -7,16 +7,13 @@
       box-sizing: border-box;
       height: 100vh;
     }
-
-    &-scroll {
-      overflow: hidden;
-    }
   }
 
   &_link {
     color: #75767F;
     border-bottom: 1px solid transparent;
     margin-bottom: 32px;
+    font-size: 12px;
 
     &:last-child {
       margin-bottom: 0;
@@ -47,4 +44,36 @@
   &-dark {
     border-bottom: 1px solid #3B3E4A;
   }
-}
+
+  &_heart {
+      color: #f1f2f9;
+      opacity: 0.3;
+      cursor: pointer;
+
+      &:hover {
+        animation: heartbeat 1s;
+        fill: #f1f2f9;
+        color: #f1f2f9;
+        opacity: 1;
+        transition: opacity 500ms;
+      }
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.25);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    &_button {
+      background-color: transparent;
+    }
+  }
+
+
