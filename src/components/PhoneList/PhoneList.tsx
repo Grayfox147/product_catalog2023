@@ -1,5 +1,5 @@
 import { Phone } from '../../pages/HomePage';
-import { PhoneCard } from '../PhoneCard/PhoneCard';
+import { PhoneCard } from '../phoneCard/PhoneCard';
 import { Row } from 'react-bootstrap';
 import React from 'react';
 

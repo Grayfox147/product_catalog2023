@@ -1,9 +1,9 @@
-import { Header } from '../components/Header';
+import { Header } from '../components/header';
 import { Carousel } from 'react-bootstrap';
 import Iphone14 from '../img/Iphone14Pro_Home-Sm.jpg';
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/footer/Footer';
 import phones from '../api/phones.json';
-import { PhoneList } from '../components/PhoneList/PhoneList';
+import { PhoneList } from '../components/phoneList/PhoneList';
 import { useState } from 'react';
 import IphoneGray from '../img/image 6.png';
 import IphoneGray2 from '../img/image 5.png';

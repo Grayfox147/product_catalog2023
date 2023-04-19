@@ -1,13 +1,19 @@
 @import '~bootstrap/scss/bootstrap';
-@import '../src/Utils/mixins.scss';
-@import '../src/components/Header/Header.scss';
-@import '../src/components/PhoneCard/PhoneCard.scss';
-@import '../src/components/PhoneList/PhoneList.scss';
-@import '../src/components/Footer/Footer.scss';
-@import '../src/Utils/variables.scss';
+@import '../src/utils/mixins.scss';
+@import '../src/utils/variables.scss';
+@import '../src/components/header/Header.scss';
+@import '../src/components/phoneCard/PhoneCard.scss';
+@import '../src/components/phoneList/PhoneList.scss';
+@import '../src/components/footer/Footer.scss';
+@import '../src/components/burguerMenu/BurguerMenu.scss';
+
+* {
+  box-sizing: border-box;
+}
 
 .App {
   margin: 0;
+  padding: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 

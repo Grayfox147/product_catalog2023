@@ -1,79 +1,99 @@
 .navbar {
-  &-nav {
+  background-color: #0F1121;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #3B3E4A;
+
+  &-isOpen {
+    width: 100vh;
+    height: 100vh;
+  }
+
+  &_links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+
     @include onMobile {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      height: 100vh;
+      display: none;
     }
+  }
+
+  &_links li {
+    list-style: none;
   }
 
   &_link {
-    color: #75767F;
-    border-bottom: 1px solid transparent;
-    margin-bottom: 32px;
+    text-decoration: none;
+    color: $main-subtitle-color;
     font-size: 12px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    padding: 0.5rem;
+    display: block;
+    border-bottom: 1px solid transparent;
 
     &:hover {
-      border-color: #f1f2f9;
-    }
-
-    @include onTablet {
-      font-weight: 800;
-      font-size: 12px;
-      line-height: 11px;
-    }
-  }
-
-  &_full_height {
-    @include onMobile {
-      min-height: 100vh;
-      align-items: flex-start;
-    }
+            border-color: #f1f2f9;
+            color: $main-font-color;
+          }
   }
 
   &_logo {
-    padding-left: 16px;
+    margin-left: 16px;
   }
 
-  &-dark {
-    border-bottom: 1px solid #3B3E4A;
+  // @include onDesktop {
+  //   margin-left: 24px;
+  //   width: 80px;
+  //   height: 26px;
+  // }
+}
+
+.toggle_button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: block;
+  width: 14px;
+  height: 8.5px;
+  color: #f1f2f9;
+  background-image: url(../../Icons/Unionmenu_opener_logo.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include onTablet {
+    display: none;
   }
 
-  &_heart {
-      color: #f1f2f9;
-      opacity: 0.3;
-      cursor: pointer;
+  @include onDesktop {
+    display: none;
+  }
+}
 
-      &:hover {
-        animation: heartbeat 1s;
-        fill: #f1f2f9;
-        color: #f1f2f9;
-        opacity: 1;
-        transition: opacity 500ms;
-      }
-    }
+.toggle_button_close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: block;
+  width: 9px;
+  height: 9px;
+  color: #f1f2f9;
+  background-image: url(../../Icons/Union.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-    @keyframes heartbeat {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.25);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    &_button {
-      background-color: transparent;
-    }
+  @include onTablet {
+    display: none;
   }
 
+  @include onDesktop {
+    display: none;
+  }
+}
 
+.toggle_container {
+  border-left: 1px solid #3B3E4A;
+  display: block;
+}
