@@ -10,6 +10,7 @@ import IphoneGray2 from '../img/image 5.png';
 import IphoneGray3 from '../img/image 7.png';
 import CarouselBanner from '../img/BannerCarousel.jpg';
 import { PhoneListWithDiscount } from '../components/PhoneListWDiscount/PhoneListWithDiscount';
+import { BurguerMenu } from '..//components/burguerMenu';
 import React, { useRef } from 'react';
 
 const newModels = [...phones].sort((a, b) => b.year - a.year);
@@ -35,6 +36,7 @@ export const HomePage: React.FC = () => {
     const [newModelsPhones] = useState(newModels.slice(0, 7));
     const [hotPricingModels] = useState(hotPricesModels.slice(0, 7));
     const backToTopRef = useRef<HTMLDivElement>(null);
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleFwButton = () => {
     // onClick I should show or alter the slice method.
@@ -44,10 +46,17 @@ export const HomePage: React.FC = () => {
         backToTopRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
+    const handleToggleButton = () => {
+        setIsOpen((state) => !state);
+    };
+
     return (
         <>
             <h1 hidden>Product Catalog</h1>
-            <Header />
+            <Header handleToggleButton={handleToggleButton} isOpen={isOpen} />
+            {isOpen && (
+                <BurguerMenu />
+            )}
             <div className='main' ref={backToTopRef}>
                 <div data-cy="welcome and new models">
                     <h1 className='main_title'>Welcome to Nice Gadgets store!</h1>

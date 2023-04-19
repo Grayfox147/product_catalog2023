@@ -1,18 +1,19 @@
 import navbar_logo from '../../Icons/logo__header_phone.svg';
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import { BurguerMenu } from '../burguerMenu';
+type HeaderProps = {
+  handleToggleButton: () => void,
+  isOpen: boolean
+};
 
-export const Header: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
+export const Header: React.FC<HeaderProps> = ({
+    handleToggleButton,
+    isOpen,
+}) => {
     return (
         <header>
             <nav
-                className={classNames(
-                    'navbar',
-                    { '-isOpen': isOpen }
-                )}
+                className='navbar'
             >
                 <div>
                     <img src={navbar_logo} alt="navbarLogo" className='navbar_logo'/>
@@ -26,13 +27,10 @@ export const Header: React.FC = () => {
                         )}
                         onClick={(event) => {
                             event.preventDefault();
-                            setIsOpen((state) => !state);
+                            handleToggleButton();
                         }}
                     />
                 </div>
-                {isOpen && (
-                    <BurguerMenu />
-                )}
                 <div className='navbar_links'>
                     <ul>
                         <li>

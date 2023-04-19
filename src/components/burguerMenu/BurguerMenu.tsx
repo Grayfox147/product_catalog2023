@@ -4,7 +4,7 @@ import { AiOutlineInbox } from 'react-icons/ai';
 
 export const BurguerMenu: React.FC = () => {
     return (
-        <div>
+        <div className='burguer_menu'>
             <div className='burguer_links'>
                 <ul>
                     <li>
