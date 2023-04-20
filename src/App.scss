@@ -7,6 +7,21 @@
 @import '../src/components/footer/Footer.scss';
 @import '../src/components/burguerMenu/BurguerMenu.scss';
 
+@font-face {
+  font-family: 'regular';
+  src: url('./fonts/Mont-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'bold';
+  src: url('./fonts//Mont-Bold.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'semi-bold';
+  src: url('./fonts//Mont-SemiBold.otf') format('otf');
+}
+
 * {
   box-sizing: border-box;
 }

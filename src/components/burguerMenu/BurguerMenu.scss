@@ -1,13 +1,14 @@
 .burguer_menu {
   background-color: #0F1121;
+  padding-top: 32px;
+  width: 100vw;
+  height: 100vh;
 }
 
 .burguer_links {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  width: 100vh;
+  justify-content: center;
 }
 
 .burguer_links ul {
@@ -15,7 +16,6 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  width: 100vh;
 }
 
 .burguer_links li {
@@ -23,6 +23,7 @@
   text-align: center;
   color: $main-subtitle-color;
   border-bottom: 1px solid transparent;
+  margin-bottom: 32px;
 
   &:hover {
     border-color: #f1f2f9;
@@ -41,6 +42,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
 }
 
 .burguer_btns button {
