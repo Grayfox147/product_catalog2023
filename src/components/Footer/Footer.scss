@@ -44,6 +44,10 @@
     font-size: 12px;
     color: #f1f2f9;
     text-decoration: none;
+
+    &:hover {
+      color: darkorchid;
+    }
   }
 
   &_subcontainer {
@@ -56,6 +60,10 @@
     font-weight: 700;
     font-size: 12px;
     margin-right: 16px;
+
+    &:hover {
+      color: darkorchid;
+    }
 
     &_container {
       display: flex;

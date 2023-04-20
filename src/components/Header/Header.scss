@@ -51,6 +51,10 @@
     width: 48px;
     height: 100%;
 
+    &:hover {
+      background-color: #323542;
+    }
+
     @include onMobile {
       display: none;
     }

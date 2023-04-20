@@ -11,7 +11,7 @@ const Footer: React.FC<FooterProps> = ({ backToTopClick }) => {
     return (
         <footer>
             <div className='footer_container'>
-                <div className='footer_logo_container'>
+                <div className='footer_logo_container' onClick={backToTopClick}>
                     <img
                         src={footerLogo}
                         alt="logo"
@@ -30,7 +30,13 @@ const Footer: React.FC<FooterProps> = ({ backToTopClick }) => {
                     </div>
                 </div>
                 <div className='footer_backlink_container'>
-                    <a href="#backToTop" className='footer_backlink'>Back to top</a>
+                    <a
+                        href="#"
+                        className='footer_backlink'
+                        onClick={backToTopClick}
+                    >
+                      Back to top
+                    </a>
                     <button
                         className='footer_backlink_button'
                         onClick={backToTopClick}
