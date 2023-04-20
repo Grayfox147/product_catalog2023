@@ -79,7 +79,7 @@ export const HomePage: React.FC = () => {
                 <div data-cy="card_carousel">
                     <div className="main_subtitle_container">
                         <h2 className='main_subtitle'>Brand new models</h2>
-                        <div>
+                        <div className='main_btns'>
                             <button
                                 className="link_button"
                                 data-cy="prevLink"
@@ -140,7 +140,7 @@ export const HomePage: React.FC = () => {
                 <div data-cy="card_carousel">
                     <div className="main_subtitle_container">
                         <h2 className='main_subtitle' style={{ marginBottom: '24px'  }}>Hot prices</h2>
-                        <div>
+                        <div className='main_btns'>
                             <button
                                 className="link_button"
                                 data-cy="prevLink"

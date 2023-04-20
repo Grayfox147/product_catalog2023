@@ -4,6 +4,9 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #3B3E4A;
+  padding: 0;
+  margin: 0;
+  height: 48px;
 
   &_links ul {
     margin: 0;
@@ -37,11 +40,21 @@
     margin-left: 16px;
   }
 
-  // @include onDesktop {
-  //   margin-left: 24px;
-  //   width: 80px;
-  //   height: 26px;
-  // }
+  &_btns {
+    height: 100%;
+    margin-left: 110px;
+  }
+
+  &_btns button {
+    background-color: transparent;
+    color:$main-font-color;
+    width: 48px;
+    height: 100%;
+
+    @include onMobile {
+      display: none;
+    }
+  }
 }
 
 .toggle_button {

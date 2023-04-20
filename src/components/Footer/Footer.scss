@@ -32,6 +32,10 @@
       display: flex;
       align-items: center;
       align-content: center;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
     }
   }
 
