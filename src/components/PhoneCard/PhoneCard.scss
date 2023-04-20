@@ -1,9 +1,11 @@
 .card {
-  background-color: #161827;
-  color: #f1f2f9;
-  padding: 32px;
+  display: flex;
   width: 212px;
   height: 439px;
+  padding: 32px;
+  align-items: center;
+  background-color: #161827;
+  color: #f1f2f9;
 
   &_image {
     margin-bottom: 24ppx;
@@ -61,12 +63,25 @@
 }
 
 .btn-primary {
-  background-color: #905BFF;
-  border-color: #905BFF;
-  font-size: 14px;
   width: 100px;
   height: 40px;
   box-sizing: border-box;
+  border-radius: 0;
+  background-color: #905BFF;
+  border-color: #905BFF;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #A378FF;
+    border-color: #905BFF;
+  }
+
+  --bs-btn-active-bg: {
+    background-color: #323542;
+  }
+  --bs-btn-active-border-color: {
+    background-color: #323542;
+  }
 }
 
 .d-flex {
@@ -102,6 +117,9 @@
 
 .like_button {
   margin-left: 8px;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
   background-color: #323542;
   height: 40px;
   width: 40px;
