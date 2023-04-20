@@ -1,0 +1,38 @@
+.banner {
+  display: flex;
+  background-color: $main-background-color;
+}
+
+.banner_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  border-radius: 5px;
+  background-color: #3B3E4A;
+}
+
+.banner_title {
+  color: #905BFF;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.banner_sub-title {
+  color: #75767F;
+}
+
+.banner_btn {
+  background-color: transparent;
+  color: $main-font-color;
+  border-radius: 8px;
+  font-size: 10px;
+  height: 40px;
+  width: 100px;
+
+  &:hover {
+    background-color: #75767F;
+  }
+}
