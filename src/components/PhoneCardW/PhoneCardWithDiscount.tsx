@@ -34,7 +34,7 @@ export const PhoneCardWithdDiscount: React.FC<PhoneCardProps> = ({ phone }) => {
                         <Card.Subtitle className='card_subtitle'>
               ${price}
                         </Card.Subtitle>
-                        <Card.Subtitle className='card_subtitle' style={{ textDecoration: 'line-through', color: '#75767F' }}>
+                        <Card.Subtitle className='card_subtitle_dashed'>
             ${fullPrice}
                         </Card.Subtitle>
                     </div>

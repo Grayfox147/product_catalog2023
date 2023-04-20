@@ -8,10 +8,11 @@ import { useState } from 'react';
 import IphoneGray from '../img/image 6.png';
 import IphoneGray2 from '../img/image 5.png';
 import IphoneGray3 from '../img/image 7.png';
-import CarouselBanner from '../img/BannerCarousel.jpg';
+// import CarouselBanner from '../img/BannerCarousel.jpg';
 import { PhoneListWithDiscount } from '../components/PhoneListWDiscount/PhoneListWithDiscount';
 import { BurguerMenu } from '..//components/burguerMenu';
 import React, { useRef } from 'react';
+import { BannerImage } from '../components/bannerImage';
 
 const newModels = [...phones].sort((a, b) => b.year - a.year);
 const hotPricesModels = [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
@@ -68,11 +69,12 @@ export const HomePage: React.FC = () => {
                                 className='d-block w-100' />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img
+                            {/* <img
                                 src={CarouselBanner}
                                 alt='banner'
                                 className='carousel_banner'
-                            />
+                            /> */}
+                            <BannerImage />
                         </Carousel.Item>
                     </Carousel>
                 </div>
