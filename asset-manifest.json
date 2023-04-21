@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog2023/static/css/main.77d12514.css",
-    "main.js": "/product_catalog2023/static/js/main.9cb90665.js",
+    "main.css": "/product_catalog2023/static/css/main.0b03ac45.css",
+    "main.js": "/product_catalog2023/static/js/main.ca2d4e89.js",
     "static/media/logo__header_phone.svg": "/product_catalog2023/static/media/logo__header_phone.6f9215944abd73ff7f28f52bc10828b3.svg",
     "static/media/Mont-Regular.otf": "/product_catalog2023/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/product_catalog2023/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
@@ -11,11 +11,11 @@
     "static/media/Iphone14Pro_Home-Sm.jpg": "/product_catalog2023/static/media/Iphone14Pro_Home-Sm.0064c2c1b615ee192b4c.jpg",
     "static/media/image 6.png": "/product_catalog2023/static/media/image 6.58fdea8dd233d61d4cdb.png",
     "index.html": "/product_catalog2023/index.html",
-    "main.77d12514.css.map": "/product_catalog2023/static/css/main.77d12514.css.map",
-    "main.9cb90665.js.map": "/product_catalog2023/static/js/main.9cb90665.js.map"
+    "main.0b03ac45.css.map": "/product_catalog2023/static/css/main.0b03ac45.css.map",
+    "main.ca2d4e89.js.map": "/product_catalog2023/static/js/main.ca2d4e89.js.map"
   },
   "entrypoints": [
-    "static/css/main.77d12514.css",
-    "static/js/main.9cb90665.js"
+    "static/css/main.0b03ac45.css",
+    "static/js/main.ca2d4e89.js"
   ]
 }
