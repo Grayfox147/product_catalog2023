@@ -2,6 +2,7 @@
   &_container {
     background-color: #0F1121;
     padding: 33px 0px 33px 16px;
+    font-family: 'bold';
 
     @include onTablet {
       display: flex;

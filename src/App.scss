@@ -10,17 +10,17 @@
 
 @font-face {
   font-family: 'regular';
-  src: url('./fonts/Mont-Regular.otf') format('otf');
+  src: url('./fonts/Mont-Regular.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'bold';
-  src: url('./fonts//Mont-Bold.otf') format('otf');
+  src: url('./fonts/Mont-Bold.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'semi-bold';
-  src: url('./fonts//Mont-SemiBold.otf') format('otf');
+  src: url('./fonts//Mont-SemiBold.otf') format('opentype');
 }
 
 * {
@@ -30,7 +30,6 @@
 .App {
   margin: 0;
   padding: 0;
-  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .carousel-inner {
@@ -52,6 +51,7 @@
   background-color: $main-background-color;
   padding: 16px;
   color: $main-font-color;
+  font-family: 'bold';
 
   &_title {
     margin-bottom: 24px;
@@ -105,22 +105,17 @@
 
 .shop {
   &_title {
-    @include onTablet {
-      font-size: 32px;
-      font-weight: 800;
-    }
-  }
-
-  &_title2 {
     font-size: 20px;
     margin-bottom: 4px;
+    cursor: pointer;
+    font-family: 'semi-bold';
   }
 
   &_subtitle {
     font-size: 14px;
-    font-weight: 600;
     color: $main-subtitle-color;
     margin-bottom: 32px;
+    font-family: 'regular';
   }
 
   &_box {
@@ -129,6 +124,7 @@
     height: $box-mobile;
     position: relative;
     margin-bottom: 24px;
+    overflow: hidden;
 
     @include onTablet {
       width: $box-tablet;
@@ -142,6 +138,7 @@
     height: $box-mobile;
     position: relative;
     margin-bottom: 24px;
+    overflow: hidden;
 
     @include onTablet {
       width: $box-tablet;
@@ -155,6 +152,7 @@
     height: $box-mobile;
     position: relative;
     margin-bottom: 24px;
+    overflow: hidden;
 
     @include onTablet {
       width: $box-tablet;
@@ -176,6 +174,12 @@
     background-repeat: no-repeat;
     max-width: 100%;
     max-width: 100%;
+    cursor: pointer;
+    transition: scale 0.5s;
+
+    &:hover {
+      scale: 1.2;
+    }
   }
 }
 

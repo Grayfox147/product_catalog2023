@@ -22,12 +22,14 @@
     margin-bottom: 8px;
     font-size: 14px;
     font-weight: 600;
+    font-family: 'regular';
   }
 
   &_subtitle {
     margin-bottom: 8px;
     font-size: 22px;
     font-weight: 800;
+    font-family: 'bold';
 
     &_container {
       display: flex;
@@ -39,6 +41,7 @@
       color: #75767F;
       font-weight: 600;
       font-size: 22px;
+      font-family: 'regular';
     }
   }
 
@@ -54,6 +57,7 @@
     justify-content: space-between;
     margin-bottom: 8px;
     font-weight: 700;
+    font-family: 'semi-bold';
   }
 
   &_text_left {
@@ -75,11 +79,12 @@
     justify-content: space-between;
     display: flex;
     padding: 0;
+    font-family: 'semi-bold';
   }
 }
 
 .btn-primary {
-  width: 100px;
+  width: 107px;
   height: 40px;
   box-sizing: border-box;
   border-radius: 0;

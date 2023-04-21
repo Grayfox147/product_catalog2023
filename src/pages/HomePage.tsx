@@ -113,7 +113,7 @@ export const HomePage: React.FC = () => {
                                 className="shop_image"
                             />
                         </div>
-                        <h2 className="shop_title2">Mobile phones</h2>
+                        <h2 className="shop_title">Mobile phones</h2>
                         <p className="shop_subtitle">95 models</p>
                     </div>
                     <div>
@@ -124,7 +124,7 @@ export const HomePage: React.FC = () => {
                                 className="shop_image"
                             />
                         </div>
-                        <h2 className="shop_title2">Tablets</h2>
+                        <h2 className="shop_title">Tablets</h2>
                         <p className="shop_subtitle">24 models</p>
                     </div>
                     <div>
@@ -135,7 +135,7 @@ export const HomePage: React.FC = () => {
                                 className="shop_image"
                             />
                         </div>
-                        <h2 className="shop_title2">Accesories</h2>
+                        <h2 className="shop_title">Accesories</h2>
                         <p className="shop_subtitle">100 models</p>
                     </div>
                 </div>
