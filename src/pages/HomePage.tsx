@@ -4,7 +4,7 @@ import Iphone14 from '../img/Iphone14Pro_Home-Sm.jpg';
 import Footer from '../components/footer/Footer';
 import phones from '../api/phones.json';
 import { PhoneList } from '../components/phoneList/PhoneList';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 // import CarouselBanner from '../img/BannerCarousel.jpg';
 import { PhoneListWithDiscount } from '../components/PhoneListWDiscount/PhoneListWithDiscount';
@@ -12,9 +12,6 @@ import { BurguerMenu } from '..//components/burguerMenu';
 import React, { useRef } from 'react';
 import { BannerImage } from '../components/bannerImage';
 import { ShopSection } from '../components/shopSection';
-
-const newModels = [...phones].sort((a, b) => b.year - a.year);
-const hotPricesModels = [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
 
 export interface Phone {
   id: string,
@@ -33,10 +30,18 @@ export interface Phone {
 }
 
 export const HomePage: React.FC = () => {
-    const [newModelsPhones] = useState(newModels.slice(0, 7));
-    const [hotPricingModels] = useState(hotPricesModels.slice(0, 7));
     const backToTopRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
+
+    const newModels = useMemo( () => {
+        return  [...phones].sort((a, b) => b.year - a.year).slice(0, 7);
+    },
+    []
+    );
+
+    const hotPricesModels = useMemo(() => {
+        return [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price)).slice(0, 7);
+    }, []);
 
     const handleFwButton = () => {
     // onClick I should show or alter the slice method.
@@ -97,7 +102,7 @@ export const HomePage: React.FC = () => {
                             </button>
                         </div>
                     </div>
-                    <PhoneList phones={newModelsPhones} />
+                    <PhoneList phones={newModels} />
                 </div>
                 <ShopSection />
                 <div data-cy="card_carousel">
@@ -120,7 +125,7 @@ export const HomePage: React.FC = () => {
                             </button>
                         </div>
                     </div>
-                    <PhoneListWithDiscount phones={hotPricingModels} />
+                    <PhoneListWithDiscount phones={hotPricesModels} />
                 </div>
             </div>
             <Footer backToTopClick={backToTopClick} />
