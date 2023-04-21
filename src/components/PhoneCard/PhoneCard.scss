@@ -4,17 +4,21 @@
   height: 439px;
   padding: 32px;
   align-items: center;
+  justify-content: center;
   background-color: $secondary_background-color;
   color: $main-font-color;
 
-  &_image {
+  &-image {
     margin-bottom: 24ppx;
-    border-radius: 13%;
+    border-radius: 15%;
+    width: 50%;
 
     &_container {
       display: flex;
       width: 208px;
       height: 196px;
+      justify-content: center;
+      align-content: center;
     }
   }
 

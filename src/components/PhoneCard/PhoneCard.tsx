@@ -22,11 +22,11 @@ export const PhoneCard: React.FC<PhoneCardProps> = ({ phone }) => {
 
     return (
         <Card className='card'>
-            <div className='card_image_container'>
+            <div className='card-image_container'>
                 <Card.Img
                     variant='top'
                     src={`product_catalog2023/${image}`}
-                    className='card_image'
+                    className='card-image'
                 />
             </div>
             <Card.Body>

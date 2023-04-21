@@ -5,14 +5,13 @@ import Footer from '../components/footer/Footer';
 import phones from '../api/phones.json';
 import { PhoneList } from '../components/phoneList/PhoneList';
 import { useState } from 'react';
-import IphoneGray from '../img/image 6.png';
-import IphoneGray2 from '../img/image 5.png';
-import IphoneGray3 from '../img/image 7.png';
+
 // import CarouselBanner from '../img/BannerCarousel.jpg';
 import { PhoneListWithDiscount } from '../components/PhoneListWDiscount/PhoneListWithDiscount';
 import { BurguerMenu } from '..//components/burguerMenu';
 import React, { useRef } from 'react';
 import { BannerImage } from '../components/bannerImage';
+import { ShopSection } from '../components/shopSection';
 
 const newModels = [...phones].sort((a, b) => b.year - a.year);
 const hotPricesModels = [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
@@ -100,45 +99,7 @@ export const HomePage: React.FC = () => {
                     </div>
                     <PhoneList phones={newModelsPhones} />
                 </div>
-                <h2 className="main_subtitle" style={{ marginBottom: '24px'  }}>Shop by category</h2>
-                <div
-                    data-cy="shop and hot prices"
-                    className='shop_container'
-                >
-                    <div>
-                        <div className="shop_box">
-                            <img
-                                src={IphoneGray}
-                                alt="grayphone"
-                                className="shop_image"
-                            />
-                        </div>
-                        <h2 className="shop_title">Mobile phones</h2>
-                        <p className="shop_subtitle">95 models</p>
-                    </div>
-                    <div>
-                        <div className="shop_box2">
-                            <img
-                                src={IphoneGray2}
-                                alt="grayphone"
-                                className="shop_image"
-                            />
-                        </div>
-                        <h2 className="shop_title">Tablets</h2>
-                        <p className="shop_subtitle">24 models</p>
-                    </div>
-                    <div>
-                        <div className="shop_box3">
-                            <img
-                                src={IphoneGray3}
-                                alt="grayphone"
-                                className="shop_image"
-                            />
-                        </div>
-                        <h2 className="shop_title">Accesories</h2>
-                        <p className="shop_subtitle">100 models</p>
-                    </div>
-                </div>
+                <ShopSection />
                 <div data-cy="card_carousel">
                     <div className="main_subtitle_container">
                         <h2 className='main_subtitle' style={{ marginBottom: '24px'  }}>Hot prices</h2>
