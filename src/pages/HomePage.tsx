@@ -5,6 +5,9 @@ import Footer from '../components/footer/Footer';
 import phones from '../api/phones.json';
 import { PhoneList } from '../components/phoneList/PhoneList';
 import { useMemo, useState } from 'react';
+import bannerAccesories from '../img/banner-accessories.png';
+import bannerPhones from '../img/banner-phones.png';
+import bannerTablets from '../img/banner-tablets.png';
 
 // import CarouselBanner from '../img/BannerCarousel.jpg';
 import { PhoneListWithDiscount } from '../components/PhoneListWDiscount/PhoneListWithDiscount';
@@ -30,9 +33,6 @@ export interface Phone {
 }
 
 export const HomePage: React.FC = () => {
-    const backToTopRef = useRef<HTMLDivElement>(null);
-    const [isOpen, setIsOpen] = useState(false);
-
     const newModels = useMemo( () => {
         return  [...phones].sort((a, b) => b.year - a.year).slice(0, 7);
     },
@@ -43,8 +43,22 @@ export const HomePage: React.FC = () => {
         return [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price)).slice(0, 7);
     }, []);
 
+    const backToTopRef = useRef<HTMLDivElement>(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const [visibleNewModels, setVisibleNewModels] = useState<Phone[]>(newModels);
+
+
     const handleFwButton = () => {
-    // onClick I should show or alter the slice method.
+        if (visibleNewModels.length > 3) {
+            const result = visibleNewModels.slice(1, 7);
+            setVisibleNewModels(result);
+        }
+
+        console.log('fw');
+    };
+
+    const handleRwButton = () => {
+        // logic
     };
 
     const backToTopClick = () => {
@@ -70,15 +84,19 @@ export const HomePage: React.FC = () => {
                             <img
                                 src={Iphone14}
                                 alt="Iphone14ProBeyond"
-                                className='d-block w-100' />
+                                className='carousel_image d-block' />
                         </Carousel.Item>
                         <Carousel.Item>
-                            {/* <img
-                                src={CarouselBanner}
-                                alt='banner'
-                                className='carousel_banner'
-                            /> */}
                             <BannerImage />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img src={bannerAccesories} alt="accesories" className='carousel_image d-block w-100'/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img src={bannerPhones} alt="phones" className='carousel_image d-block w-100'/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img src={bannerTablets} alt="tablets" className='carousel_image d-block w-100'/>
                         </Carousel.Item>
                     </Carousel>
                 </div>
@@ -89,7 +107,7 @@ export const HomePage: React.FC = () => {
                             <button
                                 className="link_button"
                                 data-cy="prevLink"
-                                // onClick={() => {}}
+                                onClick={handleRwButton}
                             >
                               «
                             </button>
@@ -102,7 +120,7 @@ export const HomePage: React.FC = () => {
                             </button>
                         </div>
                     </div>
-                    <PhoneList phones={newModels} />
+                    <PhoneList phones={visibleNewModels} />
                 </div>
                 <ShopSection />
                 <div data-cy="card_carousel">

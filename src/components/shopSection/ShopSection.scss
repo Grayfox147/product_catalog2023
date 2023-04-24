@@ -20,6 +20,7 @@
     @include onTablet {
       display: flex;
       gap: 16px;
+      justify-content: center;
     }
   }
 
@@ -44,6 +45,11 @@
 
       @include onTablet {
         width: 187px;
+       }
+
+       @include onDesktop {
+        width: 368px;
+        justify-content: center;
        }
 
       &:hover {

@@ -29,6 +29,22 @@
     font-family: 'regular';
   }
 
+  &_specs {
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    line-height: 15px;
+  }
+
+  &_text {
+    color: #75767F;
+    font-weight: 700;
+  }
+
+  &_value {
+    font-weight: 600;
+  }
+
   &_subtitle {
     margin-bottom: 8px;
     font-size: 22px;
@@ -58,20 +74,11 @@
 
   &_text_container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin-bottom: 8px;
     font-weight: 700;
     font-family: 'semi-bold';
-  }
-
-  &_text_left {
-    color: #75767F;
-    font-size: 12px;
-  }
-
-  &_text_rigth {
-    color: $main-font-color;
-    font-size: 12px;
   }
 
   &_carousel {

@@ -37,11 +37,18 @@
   margin-bottom: 68px;
 }
 
-.carousel_banner {
-  @include onTablet {
-    width: 490px;
-    height: 189px;
-  }
+.carousel_image {
+height: 320px;
+object-fit: cover;
+
+@include onTablet {
+  height: 189px;
+}
+
+@include onDesktop {
+  height: 400px;
+}
+
 }
 
 .container {

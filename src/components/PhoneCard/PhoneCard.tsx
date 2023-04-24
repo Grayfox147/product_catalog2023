@@ -38,15 +38,17 @@ export const PhoneCard: React.FC<PhoneCardProps> = ({ phone }) => {
                 </Card.Subtitle>
                 <div className='card_line'></div>
                 <div className='card_text_container'>
-                    <div className='card_text_left'>
-                          Screen <br />
-                          Capacity <br />
-                          RAM
+                    <div className='card_specs'>
+                        <div className='card_text'>Screen</div>
+                        <div className='card_value'>{screen}</div>
                     </div>
-                    <div className='card_text_rigth'>
-                        {screen}<br />
-                        {capacity} <br />
-                        {ram}
+                    <div className='card_specs'>
+                        <div className='card_text'>Capacity</div>
+                        <div className='card_value'>{capacity}</div>
+                    </div>
+                    <div className='card_specs'>
+                        <div className='card_text'>RAM</div>
+                        <div className='card_value'>{ram}</div>
                     </div>
                 </div>
                 <div className='card_btn_container'>
