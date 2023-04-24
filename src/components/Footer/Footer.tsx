@@ -20,13 +20,13 @@ const Footer: React.FC<FooterProps> = ({ backToTopClick }) => {
                 </div>
                 <div className='footer_links'>
                     <div className='footer_subcontainer'>
-                        <a href="#github" className='footer_link'>GITHUB</a>
+                        <a href="/" className='footer_link'>GITHUB</a>
                     </div>
                     <div className='footer_subcontainer'>
-                        <a href="#contacts" className='footer_link'>CONTACTS</a>
+                        <a href="/" className='footer_link'>CONTACTS</a>
                     </div>
                     <div className='footer_subcontainer'>
-                        <a href="#rigths" className='footer_link'>RIGTHS</a>
+                        <a href="/" className='footer_link'>RIGTHS</a>
                     </div>
                 </div>
                 <div className='footer_backlink_container'>
