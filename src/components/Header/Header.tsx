@@ -3,6 +3,7 @@ import React from 'react';
 import { FiHeart } from 'react-icons/fi';
 import { AiOutlineInbox } from 'react-icons/ai';
 import classNames from 'classnames';
+import { NavLink } from 'react-router-dom';
 type HeaderProps = {
   handleToggleButton: () => void,
   isOpen: boolean
@@ -35,18 +36,30 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <div className='navbar_links'>
                 <ul>
-                    <li>
-                        <a href="#home" className='navbar_link'>HOME</a>
-                    </li>
-                    <li>
-                        <a href="#phones" className='navbar_link'>PHONES</a>
-                    </li>
-                    <li>
-                        <a href="#tablets" className='navbar_link'>TABLETS</a>
-                    </li>
-                    <li>
-                        <a href="#accesories" className='navbar_link'>ACCESSORIES</a>
-                    </li>
+                    <NavLink
+                        className='navbar_link'
+                        to='/'
+                    >
+                      HOME
+                    </NavLink>
+                    <NavLink
+                        className='navbar_link'
+                        to='/phones'
+                    >
+                      PHONES
+                    </NavLink>
+                    <NavLink
+                        className='navbar_link'
+                        to='/tablets'
+                    >
+                      TABLETS
+                    </NavLink>
+                    <NavLink
+                        className='navbar_link'
+                        to='/accesories'
+                    >
+                      ACCESSORIES
+                    </NavLink>
                 </ul>
             </div>
             <div className='navbar_btns'>

@@ -18,7 +18,7 @@
   flex-direction: column;
 }
 
-.burguer_links li {
+.burguer_link {
   list-style: none;
   text-align: center;
   color: $main-subtitle-color;
@@ -26,7 +26,7 @@
   position: relative;
 }
 
-.burguer_links li a {
+.burguer_link {
   text-decoration: none;
   display: flex;
   justify-content: center;

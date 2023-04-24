@@ -4,6 +4,7 @@ import './App.scss';
 
 import { Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
+import { CatalogPage } from './pages/CatalogPage';
 
 const App: React.FC = () => {
     return (
@@ -14,6 +15,12 @@ const App: React.FC = () => {
                         path="/"
                         element={
                             <HomePage />
+                        }
+                    />
+                    <Route
+                        path="/phones"
+                        element={
+                            <CatalogPage />
                         }
                     />
                     <Route

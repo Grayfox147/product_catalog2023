@@ -71,10 +71,10 @@ export const HomePage: React.FC = () => {
 
     return (
         <>
-            <h1 hidden>Product Catalog</h1>
+            <h1 hidden>Product Homepage</h1>
             <Header handleToggleButton={handleToggleButton} isOpen={isOpen} />
             {isOpen && (
-                <BurguerMenu />
+                <BurguerMenu  handleOpen={handleToggleButton} />
             )}
             <div className='main' ref={backToTopRef}>
                 <div data-cy="welcome and new models">
