@@ -1,9 +1,11 @@
 catalog_list {
   display: flex;
   gap: 16px;
+  margin-bottom: 40px;
 
   @include onMobile {
     flex-direction: column;
+    margin-bottom: 24px;
   }
 }
 
@@ -15,7 +17,12 @@ catalog_list {
 }
 
 .row {
-align-content: center;
-justify-content: center;
-gap: 16px;
+  align-content: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+
+  @include onMobile {
+    margin-bottom: 24px;
+  }
 }
