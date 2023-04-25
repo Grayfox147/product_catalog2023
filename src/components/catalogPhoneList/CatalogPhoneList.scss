@@ -1,3 +1,9 @@
 catalog_list {
-  
+  display: flex;
+  gap: 16px;
+
+  @include onMobile {
+    flex-direction: column;
+    gap: 16px;
+  }
 }

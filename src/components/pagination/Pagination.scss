@@ -1,0 +1,31 @@
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination {
+  background-color: transparent;
+}
+
+.page-link {
+  background-color: #323542;
+  color: $main-font-color
+}
+
+.page-item {
+  background-color: #161827;
+  color: $main-font-color;
+
+    &:hover {
+      background-color: #4A4D58;
+    }
+}
+
+.page-item_active {
+  background-color: #905BFF;
+}
+
+.disabled {
+  background-color: #2A2932;
+}

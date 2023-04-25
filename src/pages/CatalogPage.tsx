@@ -7,12 +7,24 @@ import { NavLink } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
 import { Phone } from './HomePage';
 import { CatalogPhoneList } from '../components/catalogPhoneList';
+import { getNumbers } from '../utils/utils';
+import { Pagination } from '../components/pagination';
 
 export const CatalogPage: React.FC = () => {
     const backToTopRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
     const [sortBy, setSortBy] = useState('Newest');
     const [itemsPerPage, setItemsPerPage] = useState('16');
+    const [currentPage, setCurrentPage] = useState(1);
+    const selectedItemsPerPage = Number(itemsPerPage);
+
+    const numberOfPages = Math.ceil(phones.length / selectedItemsPerPage);
+    const pages = getNumbers(1, numberOfPages);
+    const [total] = useState(phones.length);
+    const firstItemIndex = currentPage * selectedItemsPerPage - selectedItemsPerPage;
+    const lastItemIndex = (currentPage * selectedItemsPerPage) <= total
+        ? (currentPage * +itemsPerPage)
+        : (total);
 
     const backToTopClick = () => {
         backToTopRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -42,6 +54,10 @@ export const CatalogPage: React.FC = () => {
         return sortPhones();
     }, [sortBy]);
 
+    const visiblePhonesPerPage = useMemo(() => {
+        return visibleSortedPhones.slice(firstItemIndex, lastItemIndex);
+    }, [itemsPerPage]);
+
     return (
         <>
             <h1 hidden>Product catalog</h1>
@@ -66,6 +82,7 @@ export const CatalogPage: React.FC = () => {
                         <select
                             name="sortBy"
                             id="sortBy"
+                            data-cy="sortBySelector"
                             className='select_panel'
                             value={sortBy}
                             onChange={(event) => {
@@ -83,6 +100,7 @@ export const CatalogPage: React.FC = () => {
                         <select
                             name="perPage"
                             id="perPage"
+                            data-cy="perPageSelector"
                             className='select_panel'
                             value={itemsPerPage}
                             onChange={(event) => {
@@ -96,7 +114,16 @@ export const CatalogPage: React.FC = () => {
                         </select>
                     </div>
                 </div>
-                <CatalogPhoneList phones={visibleSortedPhones} />
+                <CatalogPhoneList
+                    phones={visiblePhonesPerPage}
+                />
+                <Pagination
+                    itemsPerPage={selectedItemsPerPage}
+                    total={total}
+                    currentPage={currentPage}
+                    pages={pages}
+                    onPageChange={(value:number) => setCurrentPage(value)}
+                />
             </div>
             <Footer backToTopClick={backToTopClick} />
         </>

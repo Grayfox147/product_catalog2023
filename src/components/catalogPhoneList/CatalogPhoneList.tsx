@@ -7,7 +7,10 @@ type CatalogPhonesListProps = {
   phones: Phone[],
 };
 
-export const CatalogPhoneList:React.FC<CatalogPhonesListProps> = ({ phones }) => {
+export const CatalogPhoneList:React.FC<CatalogPhonesListProps> = ({
+    phones,
+
+}) => {
     return (
         <Row className="catalog_list">
             {phones.map((phone) => (
