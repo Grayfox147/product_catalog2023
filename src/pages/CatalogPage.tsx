@@ -5,8 +5,8 @@ import { BurguerMenu } from '../components/burguerMenu';
 import Footer from '../components/footer/Footer';
 import { NavLink } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
-import { PhoneList } from '../components/phoneList';
 import { Phone } from './HomePage';
+import { CatalogPhoneList } from '../components/catalogPhoneList';
 
 export const CatalogPage: React.FC = () => {
     const backToTopRef = useRef<HTMLDivElement>(null);
@@ -96,7 +96,7 @@ export const CatalogPage: React.FC = () => {
                         </select>
                     </div>
                 </div>
-                <PhoneList phones={visibleSortedPhones} />
+                <CatalogPhoneList phones={visibleSortedPhones} />
             </div>
             <Footer backToTopClick={backToTopClick} />
         </>
