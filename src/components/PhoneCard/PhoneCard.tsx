@@ -5,12 +5,15 @@ import {
 } from 'react-bootstrap';
 import { FiHeart } from 'react-icons/fi';
 import { Phone } from '../../pages/HomePage';
+import { Link } from 'react-router-dom';
 
 type PhoneCardProps = {
 phone: Phone
 };
 
-export const PhoneCard: React.FC<PhoneCardProps> = ({ phone }) => {
+export const PhoneCard: React.FC<PhoneCardProps> = ({
+    phone,
+}) => {
     const {
         image,
         name,
@@ -23,16 +26,20 @@ export const PhoneCard: React.FC<PhoneCardProps> = ({ phone }) => {
     return (
         <Card className='card'>
             <div className='card-image_container'>
-                <Card.Img
-                    variant='top'
-                    src={`product_catalog2023/${image}`}
-                    className='card-image'
-                />
+                <Link to='/ItemCardPage'>
+                    <Card.Img
+                        variant='top'
+                        src={`product_catalog2023/${image}`}
+                        className='card-image'
+                    />
+                </Link>
             </div>
             <Card.Body>
-                <Card.Title style={{ color: '#f1f2f9' }} className='card_title'>
-                    {name}
-                </Card.Title>
+                <Link to='/ItemCardPage'>
+                    <Card.Title style={{ color: '#f1f2f9' }} className='card_title'>
+                        {name}
+                    </Card.Title>
+                </Link>
                 <Card.Subtitle className='card_subtitle'>
                       ${price}
                 </Card.Subtitle>

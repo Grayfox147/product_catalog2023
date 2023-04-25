@@ -8,8 +8,6 @@ import { useMemo, useState } from 'react';
 import bannerAccesories from '../img/banner-accessories.png';
 import bannerPhones from '../img/banner-phones.png';
 import bannerTablets from '../img/banner-tablets.png';
-
-// import CarouselBanner from '../img/BannerCarousel.jpg';
 import { PhoneListWithDiscount } from '../components/PhoneListWDiscount/PhoneListWithDiscount';
 import { BurguerMenu } from '..//components/burguerMenu';
 import React, { useRef } from 'react';

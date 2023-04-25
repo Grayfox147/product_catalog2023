@@ -9,7 +9,6 @@ type CatalogPhonesListProps = {
 
 export const CatalogPhoneList:React.FC<CatalogPhonesListProps> = ({
     phones,
-
 }) => {
     return (
         <Row className="catalog_list">

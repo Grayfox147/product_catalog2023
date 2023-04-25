@@ -12,6 +12,7 @@
     margin-bottom: 24ppx;
     border-radius: 15%;
     width: 50%;
+    cursor: pointer;
 
     &_container {
       display: flex;
@@ -27,6 +28,7 @@
     font-size: 14px;
     font-weight: 600;
     font-family: 'regular';
+    cursor: pointer;
   }
 
   &_specs {

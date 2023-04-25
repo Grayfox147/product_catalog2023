@@ -16,7 +16,12 @@ export const CatalogPage: React.FC = () => {
     const [sortBy, setSortBy] = useState('Newest');
     const [itemsPerPage, setItemsPerPage] = useState('16');
     const [currentPage, setCurrentPage] = useState(1);
+
     const selectedItemsPerPage = Number(itemsPerPage);
+
+    // const findPhone = (phoneId: number) => {
+    //     return  phones.find((phone) => (+(phone.id) === phoneId));
+    // };
 
     const numberOfPages = Math.ceil(phones.length / selectedItemsPerPage);
     const pages = getNumbers(1, numberOfPages);
