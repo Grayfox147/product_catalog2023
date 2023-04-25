@@ -26,7 +26,7 @@ const App: React.FC = () => {
                     <Route
                         path="*"
                         element={
-                            <div>error webpage not found</div>
+                            <h1 className="title">Page not found</h1>
                         }
                     />
                 </Routes>

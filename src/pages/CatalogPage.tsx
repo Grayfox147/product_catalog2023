@@ -54,9 +54,7 @@ export const CatalogPage: React.FC = () => {
         return sortPhones();
     }, [sortBy]);
 
-    const visiblePhonesPerPage = useMemo(() => {
-        return visibleSortedPhones.slice(firstItemIndex, lastItemIndex);
-    }, [itemsPerPage]);
+    const visiblePhonesPerPage = visibleSortedPhones.slice(firstItemIndex, lastItemIndex);
 
     return (
         <>
