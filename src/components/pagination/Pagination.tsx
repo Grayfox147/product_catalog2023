@@ -46,10 +46,16 @@ export const Pagination:React.FC<PaginationProps> = ({
                             { 'page-item_active': page === currentPage }
                         )}
                         key={page}
+                        onClick={(event) => {
+                            event.preventDefault();
+                            if (page !== currentPage) {
+                                onPageChange(page);
+                            }
+                        }}
                     >
                         <a
                             data-cy="pageLink"
-                            className="page-link"
+                            className="page-item_link"
                             href={`#${page}`}
                             onClick={(event) => {
                                 event.preventDefault();

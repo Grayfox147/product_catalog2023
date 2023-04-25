@@ -4,6 +4,18 @@ catalog_list {
 
   @include onMobile {
     flex-direction: column;
-    gap: 16px;
   }
+}
+
+.select_panel {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'semi-bold';
+  display: flex;
+}
+
+.row {
+align-content: center;
+justify-content: center;
+gap: 16px;
 }

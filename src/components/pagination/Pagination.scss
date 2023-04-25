@@ -5,23 +5,40 @@
 }
 
 .pagination {
+  display: flex;
   background-color: transparent;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 8px;
 }
 
 .page-link {
   background-color: #323542;
-  color: $main-font-color
+  color: $main-font-color;
+  font-family: 'regular';
+  border: none;
 }
 
 .page-item {
   background-color: #161827;
-  color: $main-font-color;
+  display: flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
     &:hover {
       background-color: #4A4D58;
+    }
+
+    &_link {
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'regular';
+      color: $main-font-color;
+      text-decoration: none;
     }
 }
 
