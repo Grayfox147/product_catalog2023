@@ -36,6 +36,11 @@
     border-bottom: 2px solid transparent;
 
     &:hover {
+          background-color: #323542;
+          color: $main-font-color;
+          }
+
+    &-active {
             border-color: #f1f2f9;
             color: $main-font-color;
           }

@@ -37,25 +37,37 @@ export const Header: React.FC<HeaderProps> = ({
             <div className='navbar_links'>
                 <ul>
                     <NavLink
-                        className='navbar_link'
-                        to='/'
+                        className={({ isActive }) => classNames(
+                            'navbar_link',
+                            { 'navbar_link-active': isActive }
+                        )}
+                        to='/product_catalog2023'
                     >
                       HOME
                     </NavLink>
                     <NavLink
-                        className='navbar_link'
+                        className={({ isActive }) => classNames(
+                            'navbar_link',
+                            { 'navbar_link-active': isActive }
+                        )}
                         to='/phones'
                     >
                       PHONES
                     </NavLink>
                     <NavLink
-                        className='navbar_link'
+                        className={({ isActive }) => classNames(
+                            'navbar_link',
+                            { 'navbar_link-active': isActive }
+                        )}
                         to='/tablets'
                     >
                       TABLETS
                     </NavLink>
                     <NavLink
-                        className='navbar_link'
+                        className={({ isActive }) => classNames(
+                            'navbar_link',
+                            { 'navbar_link-active': isActive }
+                        )}
                         to='/accesories'
                     >
                       ACCESSORIES

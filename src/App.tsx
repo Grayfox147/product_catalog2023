@@ -12,7 +12,7 @@ const App: React.FC = () => {
             <main className='section'>
                 <Routes>
                     <Route
-                        path="/"
+                        path="/product_catalog2023"
                         element={
                             <HomePage />
                         }

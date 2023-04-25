@@ -67,7 +67,7 @@ export const CatalogPage: React.FC = () => {
                 <div className="tabs_path">
                     <NavLink
                         className='homeIcon'
-                        to='/'
+                        to='/product_catalog2023'
                     />
                     <img src={arrowRigth} alt="Next-Arrow" />
                     <span className='tabs_text'>Phones</span>
