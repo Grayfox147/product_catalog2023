@@ -38,4 +38,9 @@
   &:hover {
     background-color: #75767F;
   }
+
+    & a {
+      text-decoration: none;
+      color: $main-font-color;
+    }
 }

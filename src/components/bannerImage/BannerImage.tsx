@@ -1,5 +1,4 @@
 import React from 'react';
-// import Iphone14 from '../../img/Iphone14Pro_Home-Sm.jpg';
 import emoji from '../../Icons/image 15.png';
 
 export const BannerImage: React.FC = () => {
@@ -11,9 +10,12 @@ export const BannerImage: React.FC = () => {
                     <img src={emoji} alt="Iphone14" />
                 </h1>
                 <p className='banner_sub-title'>Be the first!</p>
-                <button className='banner_btn'>ORDER NOW</button>
+                <button
+                    className='banner_btn'
+                >
+                    <a href="/phones">ORDER NOW</a>
+                </button>
             </div>
-            {/* <img src={Iphone14} alt="Iphone14" /> */}
         </div>
     );
 };
