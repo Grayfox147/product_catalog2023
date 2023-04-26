@@ -6,6 +6,8 @@ import { Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { CatalogPage } from './pages/CatalogPage';
 import { ItemCardPage } from './pages/ItemCardPage';
+import { TabletsPage } from './pages/TabletsPage';
+import { AccesoriesPage } from './pages/AccesoriesPage';
 
 const App: React.FC = () => {
 
@@ -29,6 +31,18 @@ const App: React.FC = () => {
                         path="/ItemCardPage/:phoneitemId?"
                         element={
                             <ItemCardPage />
+                        }
+                    />
+                    <Route
+                        path="/tablets"
+                        element={
+                            <TabletsPage />
+                        }
+                    />
+                    <Route
+                        path="/accesories"
+                        element={
+                            <AccesoriesPage />
                         }
                     />
                     <Route

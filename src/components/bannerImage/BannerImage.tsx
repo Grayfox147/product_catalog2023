@@ -1,5 +1,6 @@
 import React from 'react';
 import emoji from '../../Icons/image 15.png';
+import { Link } from 'react-router-dom';
 
 export const BannerImage: React.FC = () => {
     return (
@@ -13,7 +14,7 @@ export const BannerImage: React.FC = () => {
                 <button
                     className='banner_btn'
                 >
-                    <a href="/phones">ORDER NOW</a>
+                    <Link to="/phones">ORDER NOW</Link>
                 </button>
             </div>
         </div>

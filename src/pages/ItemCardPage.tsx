@@ -5,7 +5,7 @@ import phones from '../api/phones.json';
 import Footer from '../components/footer/Footer';
 import { Link, NavLink, useMatch } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
-import arrorLeft from '../Icons/Chevron (Arrow left.svg';
+import arrorLeft from '../Icons/Chevron (Arrow left).svg';
 import { Phone } from './HomePage';
 
 export const ItemCardPage:React.FC = () => {
