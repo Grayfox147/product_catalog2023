@@ -10,11 +10,7 @@ import { CatalogPhoneList } from '../components/catalogPhoneList';
 import { getNumbers } from '../utils/utils';
 import { Pagination } from '../components/pagination';
 
-type CatalogProps = {
-  setPhoneId: (id: number) => void,
-};
-
-export const CatalogPage: React.FC<CatalogProps> = ({ setPhoneId }) => {
+export const CatalogPage: React.FC = () => {
     const backToTopRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
     const [sortBy, setSortBy] = useState('Newest');
@@ -119,7 +115,6 @@ export const CatalogPage: React.FC<CatalogProps> = ({ setPhoneId }) => {
                 </div>
                 <CatalogPhoneList
                     phones={visiblePhonesPerPage}
-                    setPhoneId={setPhoneId}
                 />
                 <Pagination
                     itemsPerPage={selectedItemsPerPage}

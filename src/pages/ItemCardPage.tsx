@@ -3,27 +3,24 @@ import { Header } from '../components/header';
 import { BurguerMenu } from '../components/burguerMenu';
 import phones from '../api/phones.json';
 import Footer from '../components/footer/Footer';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useMatch } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
 import { Phone } from './HomePage';
 
-type ItemCardPageProps = {
-  phoneId: number,
-};
-
-export const ItemCardPage:React.FC<ItemCardPageProps> = ({ phoneId }) => {
+export const ItemCardPage:React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const backToTopRef = useRef<HTMLDivElement>(null);
-    const [selectedPhoneId] = useState(phoneId);
-    const [selectedPhone, setSelectedPhone] =  useState<Phone | null>(null);
+    const match = useMatch('/phones/:phoneitemId');
+    const selectedItemId = match?.params.phoneitemId;
+    const [selectedPhone, setSelectedPhone] = useState<Phone | null>(null);
 
-    const findPhone = (phoneId: number) => {
-        return phones.find((phone) => (+(phone.id) === phoneId));
+    const findPhone = (phoneitemId: string) => {
+        return phones.find((phone) => phone.itemId === phoneitemId);
     };
 
     useEffect(() => {
-        if (selectedPhoneId) {
-            setSelectedPhone(findPhone(selectedPhoneId) as Phone);
+        if (selectedItemId) {
+            setSelectedPhone(findPhone(selectedItemId) as Phone);
         }
     }, []);
 
