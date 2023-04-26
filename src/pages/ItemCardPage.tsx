@@ -10,7 +10,7 @@ import { Phone } from './HomePage';
 export const ItemCardPage:React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const backToTopRef = useRef<HTMLDivElement>(null);
-    const match = useMatch('/phones/:phoneitemId');
+    const match = useMatch('/ItemCardPage/:phoneitemId');
     const selectedItemId = match?.params.phoneitemId;
     const [selectedPhone, setSelectedPhone] = useState<Phone | null>(null);
 
@@ -21,6 +21,7 @@ export const ItemCardPage:React.FC = () => {
     useEffect(() => {
         if (selectedItemId) {
             setSelectedPhone(findPhone(selectedItemId) as Phone);
+            console.log(selectedItemId);
         }
     }, []);
 
@@ -48,7 +49,9 @@ export const ItemCardPage:React.FC = () => {
                     <img src={arrowRigth} alt="Next-Arrow" />
                     <span className='tabs_text'>Phones</span>
                     <img src={arrowRigth} alt="Next-Arrow" />
-                    <span className='tabs_text'>{selectedPhone?.name}</span>
+                    {selectedPhone && (
+                        <span className='tabs_text'>{selectedPhone.name}</span>
+                    )}
                 </div>
             </div>
             <Footer backToTopClick={backToTopClick} />

@@ -14,7 +14,7 @@ export const BurguerMenu: React.FC<BurguerMenuProps> = ({ handleOpen }) => {
                 <ul>
                     <NavLink
                         className='burguer_link'
-                        to='/'
+                        to='/product_catalog2023'
                         onClick={handleOpen}
                     >
                       HOME

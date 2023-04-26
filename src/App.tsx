@@ -20,13 +20,13 @@ const App: React.FC = () => {
                         }
                     />
                     <Route
-                        path="/phones/:phoneitemId?"
+                        path="/phones"
                         element={
                             <CatalogPage />
                         }
                     />
                     <Route
-                        path="/ItemCardPage"
+                        path="/ItemCardPage/:phoneitemId?"
                         element={
                             <ItemCardPage />
                         }
