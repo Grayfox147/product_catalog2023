@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 import { Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { CatalogPage } from './pages/CatalogPage';
+import { ItemCardPage } from './pages/ItemCardPage';
 
 const App: React.FC = () => {
+    const [phoneID, setPhoneId] = useState(0);
+
     return (
         <div className="App">
             <main className='section'>
@@ -20,7 +23,13 @@ const App: React.FC = () => {
                     <Route
                         path="/phones"
                         element={
-                            <CatalogPage />
+                            <CatalogPage setPhoneId={setPhoneId} />
+                        }
+                    />
+                    <Route
+                        path="/ItemCardPage"
+                        element={
+                            <ItemCardPage phoneId={phoneID} />
                         }
                     />
                     <Route

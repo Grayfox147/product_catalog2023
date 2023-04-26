@@ -175,12 +175,13 @@ object-fit: cover;
 }
 
 .select_panel {
-  display: flex;
   width: 136px;
   height: 40px;
-  background-color: #323542;
-  color:$main-font-color;
   font-size: 14px;
   font-weight: 700;
+  font-family: 'semi-bold';
+  display: flex;
+  background-color: #323542;
+  color:$main-font-color;
   border-color: transparent;
 }
