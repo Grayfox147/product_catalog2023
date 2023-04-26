@@ -1,14 +1,13 @@
 {
   "files": {
-    "main.css": "/product_catalog2023/static/css/main.b1fda9a5.css",
-    "main.js": "/product_catalog2023/static/js/main.25ce03cb.js",
+    "main.css": "/product_catalog2023/static/css/main.fe63da9d.css",
+    "main.js": "/product_catalog2023/static/js/main.c80f0bf4.js",
     "static/media/banner-phones.png": "/product_catalog2023/static/media/banner-phones.b4eeda8bd82b712057a2.png",
     "static/media/logo__header_phone.svg": "/product_catalog2023/static/media/logo__header_phone.6f9215944abd73ff7f28f52bc10828b3.svg",
     "static/media/banner-tablets.png": "/product_catalog2023/static/media/banner-tablets.a962057c1043a08f7737.png",
     "static/media/Mont-Regular.otf": "/product_catalog2023/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-SemiBold.otf": "/product_catalog2023/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
     "static/media/Mont-Bold.otf": "/product_catalog2023/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
-    "static/media/Iphone14Pro_Home-Sm.jpg": "/product_catalog2023/static/media/Iphone14Pro_Home-Sm.0064c2c1b615ee192b4c.jpg",
     "static/media/banner-accessories.png": "/product_catalog2023/static/media/banner-accessories.bdd2e0fca0159e52f41c.png",
     "static/media/tablets-img2.jpg": "/product_catalog2023/static/media/tablets-img2.b3fa5d2988539d4a15f3.jpg",
     "static/media/Accesories-img3.jpg": "/product_catalog2023/static/media/Accesories-img3.357f02762fe5799b357a.jpg",
@@ -18,11 +17,12 @@
     "static/media/Close.svg": "/product_catalog2023/static/media/Close.240bedeea54b93e8ac74.svg",
     "static/media/Union.svg": "/product_catalog2023/static/media/Union.571b3bb49f127bd00746.svg",
     "static/media/Chevron (Arrow Right).svg": "/product_catalog2023/static/media/Chevron (Arrow Right).032143ec3a469792459dc3d16ad01773.svg",
-    "main.b1fda9a5.css.map": "/product_catalog2023/static/css/main.b1fda9a5.css.map",
-    "main.25ce03cb.js.map": "/product_catalog2023/static/js/main.25ce03cb.js.map"
+    "static/media/Chevron (Arrow left).svg": "/product_catalog2023/static/media/Chevron (Arrow left).173b6b33bb1fa3a0dcbb77814d326b9c.svg",
+    "main.fe63da9d.css.map": "/product_catalog2023/static/css/main.fe63da9d.css.map",
+    "main.c80f0bf4.js.map": "/product_catalog2023/static/js/main.c80f0bf4.js.map"
   },
   "entrypoints": [
-    "static/css/main.b1fda9a5.css",
-    "static/js/main.25ce03cb.js"
+    "static/css/main.fe63da9d.css",
+    "static/js/main.c80f0bf4.js"
   ]
 }
