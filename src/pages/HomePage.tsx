@@ -1,6 +1,5 @@
 import { Header } from '../components/header';
 import { Carousel } from 'react-bootstrap';
-// import Iphone14 from '../img/Iphone14Pro_Home-Sm.jpg';
 import Footer from '../components/footer/Footer';
 import phones from '../api/phones.json';
 import { PhoneList } from '../components/phoneList/PhoneList';
@@ -77,12 +76,6 @@ export const HomePage: React.FC = () => {
                 <div data-cy="welcome and new models">
                     <h1 className='main_title'>Welcome to Nice Gadgets store!</h1>
                     <Carousel>
-                        {/* <Carousel.Item >
-                            <img
-                                src={Iphone14}
-                                alt="Iphone14ProBeyond"
-                                className='carousel_image d-block' />
-                        </Carousel.Item> */}
                         <Carousel.Item interval={5000}>
                             <BannerImage />
                         </Carousel.Item>

@@ -3,8 +3,9 @@ import { Header } from '../components/header';
 import { BurguerMenu } from '../components/burguerMenu';
 import phones from '../api/phones.json';
 import Footer from '../components/footer/Footer';
-import { NavLink, useMatch } from 'react-router-dom';
+import { Link, NavLink, useMatch } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
+import arrorLeft from '../Icons/Chevron (Arrow left.svg';
 import { Phone } from './HomePage';
 
 export const ItemCardPage:React.FC = () => {
@@ -21,7 +22,6 @@ export const ItemCardPage:React.FC = () => {
     useEffect(() => {
         if (selectedItemId) {
             setSelectedPhone(findPhone(selectedItemId) as Phone);
-            console.log(selectedItemId);
         }
     }, []);
 
@@ -47,12 +47,25 @@ export const ItemCardPage:React.FC = () => {
                         to='/product_catalog2023'
                     />
                     <img src={arrowRigth} alt="Next-Arrow" />
-                    <span className='tabs_text'>Phones</span>
+                    <Link to={'/phones'} className='tabs_back-text'>Phones</Link>
                     <img src={arrowRigth} alt="Next-Arrow" />
                     {selectedPhone && (
                         <span className='tabs_text'>{selectedPhone.name}</span>
                     )}
                 </div>
+                <div className='tabs_back'>
+                    <img src={arrorLeft} alt="Next-Arrow" />
+                    <Link to={'/phones'} className='tabs_back-text'>Back</Link>
+                </div>
+                {selectedPhone && (
+                    <>
+                        <h1 className='item_title'>{selectedPhone.name}</h1>
+                        <img src={`product_catalog2023/${selectedPhone.image}`} alt="phone-image" />
+                        <div>
+
+                        </div>
+                    </>
+                )}
             </div>
             <Footer backToTopClick={backToTopClick} />
         </>
