@@ -1,7 +1,8 @@
 import React from 'react';
 import { FiHeart } from 'react-icons/fi';
 import { AiOutlineInbox } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+// import classNames from 'classnames';
 
 type BurguerMenuProps = {
   handleOpen: () => void,
@@ -43,12 +44,24 @@ export const BurguerMenu: React.FC<BurguerMenuProps> = ({ handleOpen }) => {
                 </ul>
             </div>
             <div className='burguer_btns'>
-                <button>
-                    <FiHeart color='#F1F2F9' size={10}/>
-                </button>
-                <button>
-                    <AiOutlineInbox color='#F1F2F9' size={10}/>
-                </button>
+                <Link
+                    className='burguer_btns-link'
+                    to={'/favourites'}
+                    onClick={handleOpen}
+                >
+                    <button>
+                        <FiHeart color='#F1F2F9' size={10}/>
+                    </button>
+                </Link>
+                <Link
+                    className='burguer_btns-link'
+                    to={'/shoppingCart'}
+                    onClick={handleOpen}
+                >
+                    <button>
+                        <AiOutlineInbox color='#F1F2F9' size={10}/>
+                    </button>
+                </Link>
             </div>
         </div>
     );

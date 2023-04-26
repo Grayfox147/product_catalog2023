@@ -10,6 +10,10 @@
 @import '../src/components/shopSection/ShopSection.scss';
 @import '../src/components/catalogPhoneList/CatalogPhoneList.scss';
 @import '../src/components/pagination/Pagination.scss';
+@import '../src/pages/CatalogPage.scss';
+@import '../src/pages/FavouritesPage.scss';
+@import '../src/pages/ItemCardPage.scss';
+
 
 @font-face {
   font-family: 'regular';
@@ -125,81 +129,4 @@ object-fit: cover;
     background-color: #323542;
     color: #F1F2F9;
   }
-}
-
-.tabs_path {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  margin-bottom: 24px;
-}
-
-.homeIcon {
-    width: 14px;
-    height: 14px;
-    background-image: url('./Icons/Home.svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.tabs_text {
-  font-size: 12px;
-  color: #75767f;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.catalog_title {
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.catalog_subtitle {
-  font-weight: 600;
-  font-size: 14px;
-  color: #75767f;
-  margin-bottom: 32px;
-}
-
-.catalog_select {
-  display: flex;
-  flex-direction: column;
-}
-
-.catalog_select-container {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.select_panel {
-  width: 136px;
-  height: 40px;
-  font-size: 14px;
-  font-weight: 700;
-  font-family: 'semi-bold';
-  display: flex;
-  background-color: #323542;
-  color:$main-font-color;
-  border-color: transparent;
-}
-
-.tabs_back-text {
-  color: $main-font-color;
-  font-size: 12px;
-  font-family: 'semi-bold';
-  font-weight: 700;
-  text-decoration: none;
-
-    &:hover {
-    color: darkorchid;
-  }
-}
-
-.item_title {
-  font-size: 22px;
-  font-family: 'bold';
-  font-weight: 800;
 }

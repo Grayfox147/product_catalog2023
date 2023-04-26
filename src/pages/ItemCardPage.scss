@@ -1,0 +1,29 @@
+.select_panel {
+  width: 136px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'semi-bold';
+  display: flex;
+  background-color: #323542;
+  color:$main-font-color;
+  border-color: transparent;
+}
+
+.tabs_back-text {
+  color: $main-font-color;
+  font-size: 12px;
+  font-family: 'semi-bold';
+  font-weight: 700;
+  text-decoration: none;
+
+    &:hover {
+    color: darkorchid;
+  }
+}
+
+.item_title {
+  font-size: 22px;
+  font-family: 'bold';
+  font-weight: 800;
+}

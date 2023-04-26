@@ -3,7 +3,7 @@ import React from 'react';
 import { FiHeart } from 'react-icons/fi';
 import { AiOutlineInbox } from 'react-icons/ai';
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 type HeaderProps = {
   handleToggleButton: () => void,
   isOpen: boolean
@@ -75,12 +75,16 @@ export const Header: React.FC<HeaderProps> = ({
                 </ul>
             </div>
             <div className='navbar_btns'>
-                <button>
-                    <FiHeart color='#F1F2F9' size={15}/>
-                </button>
-                <button>
-                    <AiOutlineInbox color='#F1F2F9' size={15}/>
-                </button>
+                <Link to={'/favourites'}>
+                    <button>
+                        <FiHeart color='#F1F2F9' size={15}/>
+                    </button>
+                </Link>
+                <Link to={'/shoppingCart'}>
+                    <button>
+                        <AiOutlineInbox color='#F1F2F9' size={15}/>
+                    </button>
+                </Link>
             </div>
         </nav>
     );

@@ -8,6 +8,8 @@ import { CatalogPage } from './pages/CatalogPage';
 import { ItemCardPage } from './pages/ItemCardPage';
 import { TabletsPage } from './pages/TabletsPage';
 import { AccesoriesPage } from './pages/AccesoriesPage';
+import { FavouritesPage } from './pages/FavouritesPage';
+import { ShoppingCartPage } from './pages/ShoppingCartPage';
 
 const App: React.FC = () => {
 
@@ -43,6 +45,18 @@ const App: React.FC = () => {
                         path="/accesories"
                         element={
                             <AccesoriesPage />
+                        }
+                    />
+                    <Route
+                        path="/favourites"
+                        element={
+                            <FavouritesPage />
+                        }
+                    />
+                    <Route
+                        path="/shoppingCart"
+                        element={
+                            <ShoppingCartPage />
                         }
                     />
                     <Route
