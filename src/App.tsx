@@ -10,7 +10,6 @@ import { TabletsPage } from './pages/TabletsPage';
 import { AccesoriesPage } from './pages/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { ShoppingCartPage } from './pages/ShoppingCartPage';
-
 const App: React.FC = () => {
 
     return (

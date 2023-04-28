@@ -64,7 +64,9 @@ export const PhoneCard: React.FC<PhoneCardProps> = ({
                 </div>
                 <div className='card_btn_container'>
                     <Button>Add to cart</Button>
-                    <button className='like_button'>
+                    <button
+                        className='like_button'
+                    >
                         <FiHeart className='heart'/>
                     </button>
                 </div>

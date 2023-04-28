@@ -10,6 +10,11 @@ const Root = () => (
     </Router>
 );
 
+//  STORE => Globalized STATE
+// ACTION => Increment
+//  REDUCER
+// DISPATCH => implement the action
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
