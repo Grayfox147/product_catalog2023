@@ -6,7 +6,7 @@ import Footer from '../components/footer/Footer';
 import { Link, NavLink, useMatch } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
 import arrorLeft from '../Icons/Chevron (Arrow left).svg';
-import { Phone } from './HomePage';
+import { Phone } from '../types/Phone';
 
 export const ItemCardPage:React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);

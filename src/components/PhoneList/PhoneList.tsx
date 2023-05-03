@@ -1,4 +1,4 @@
-import { Phone } from '../../pages/HomePage';
+import { Phone } from '../../types/Phone';
 import { PhoneCard } from '../phoneCard/PhoneCard';
 import { Row } from 'react-bootstrap';
 import React from 'react';

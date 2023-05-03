@@ -13,6 +13,7 @@
 @import '../src/pages/CatalogPage.scss';
 @import '../src/pages/FavouritesPage.scss';
 @import '../src/pages/ItemCardPage.scss';
+@import '../src/components/cardCarousel/cardCarousel.scss';
 
 
 @font-face {
@@ -91,42 +92,5 @@ object-fit: cover;
       margin-bottom: 56px;
       padding-top: 56px;
     }
-  }
-
-  &_btns {
-    margin-left: 72px;
-    display: flex;
-    gap: 16px;
-  }
-
-  &_subtitle {
-    font-weight: 800;
-    display: inline-block;
-    font-size: 22px;
-
-    @include onTablet {
-      font-size: 32px;
-    }
-
-    &_container {
-      display: flex;
-      margin-bottom: 24px;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-}
-
-.link_button {
-  width: 32px;
-  height: 32px;
-  box-sizing: border-box;
-  background-color: transparent;
-  color: #4A4D58;
-  border: 1px solid #3B3E4A;
-
-  &:hover {
-    background-color: #323542;
-    color: #F1F2F9;
   }
 }

@@ -12,22 +12,6 @@ import { BannerImage } from '../components/bannerImage';
 import { ShopSection } from '../components/shopSection';
 import { CardCarousel } from '../components/cardCarousel';
 
-export interface Phone {
-  id: string,
-  category: string,
-  phoneId: string,
-  itemId: string,
-  name: string,
-  fullPrice: number,
-  price: number,
-  screen: string,
-  capacity: string,
-  color: string,
-  ram: string,
-  year: number,
-  image: string
-}
-
 export const HomePage: React.FC = () => {
     const backToTopRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);

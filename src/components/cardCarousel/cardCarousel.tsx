@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { PhoneList } from '../phoneList';
-import { Phone } from '../../pages/HomePage';
+import { Phone } from '../../types/Phone';
 import { PhoneListWithDiscount } from '../PhoneListWDiscount';
 
 type CardCarouselProps = {
@@ -36,9 +36,9 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
 
     return (
         <div data-cy="card_carousel" id={`${dataCyID}`}>
-            <div className="main_subtitle_container">
-                <h2 className='main_subtitle'>{title}</h2>
-                <div className='main_btns'>
+            <div className="cardCarousel_container">
+                <h2 className='cardCarousel_title'>{title}</h2>
+                <div className='cardCarousel_btns'>
                     <button
                         className="link_button"
                         data-cy="prevLink"

@@ -5,7 +5,7 @@ import { BurguerMenu } from '../components/burguerMenu';
 import Footer from '../components/footer/Footer';
 import { NavLink } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
-import { Phone } from './HomePage';
+import { Phone } from '../types/Phone';
 import { CatalogPhoneList } from '../components/catalogPhoneList';
 import { getNumbers } from '../utils/utils';
 import { Pagination } from '../components/pagination';
