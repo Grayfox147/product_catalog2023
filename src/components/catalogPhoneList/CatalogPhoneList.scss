@@ -1,21 +1,13 @@
-catalog_list {
+.catalog_list {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 40px;
+  align-content: center;
+  justify-content: center;
 
   @include onMobile {
     flex-direction: column;
-    margin-bottom: 24px;
-  }
-}
-
-.row {
-  align-content: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 40px;
-
-  @include onMobile {
     margin-bottom: 24px;
   }
 }
