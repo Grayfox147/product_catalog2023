@@ -2,16 +2,15 @@ import { Header } from '../components/header';
 import { Carousel } from 'react-bootstrap';
 import Footer from '../components/footer/Footer';
 import phones from '../api/phones.json';
-import { PhoneList } from '../components/phoneList/PhoneList';
 import { useMemo, useState } from 'react';
 import bannerAccesories from '../img/banner-accessories.png';
 import bannerPhones from '../img/banner-phones.png';
 import bannerTablets from '../img/banner-tablets.png';
-import { PhoneListWithDiscount } from '../components/PhoneListWDiscount/PhoneListWithDiscount';
 import { BurguerMenu } from '..//components/burguerMenu';
 import React, { useRef } from 'react';
 import { BannerImage } from '../components/bannerImage';
 import { ShopSection } from '../components/shopSection';
+import { CardCarousel } from '../components/cardCarousel';
 
 export interface Phone {
   id: string,
@@ -30,32 +29,37 @@ export interface Phone {
 }
 
 export const HomePage: React.FC = () => {
+    const backToTopRef = useRef<HTMLDivElement>(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const [currentPageNewModels, setCurrentPageNewModels] = useState(1);
+    const [currentPageHotPrices, setCurrentPageHotPrices] = useState(1);
+    const selectedItemsPerPage = 4;
+
+    const [total] = useState(phones.length);
+    const firstNewItemIndex = currentPageNewModels * selectedItemsPerPage - selectedItemsPerPage;
+    const lastNewItemIndex = (currentPageNewModels * selectedItemsPerPage) <= total
+        ? (currentPageNewModels * selectedItemsPerPage)
+        : (total);
+
+    const firstHotItemIndex = currentPageHotPrices * selectedItemsPerPage - selectedItemsPerPage;
+    const lastHotItemIndex = (currentPageHotPrices * selectedItemsPerPage) <= total
+        ? (currentPageHotPrices * selectedItemsPerPage)
+        : (total);
+
     const newModels = useMemo( () => {
-        return  [...phones].sort((a, b) => b.year - a.year).slice(0, 7);
+        return  [...phones].sort((a, b) => b.year - a.year);
     },
     []
     );
 
+    const visibleNewPhonesPerPage = newModels.slice(firstNewItemIndex, lastNewItemIndex);
+
+
     const hotPricesModels = useMemo(() => {
-        return [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price)).slice(0, 7);
+        return [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
     }, []);
 
-    const backToTopRef = useRef<HTMLDivElement>(null);
-    const [isOpen, setIsOpen] = useState(false);
-    const [visibleNewModels, setVisibleNewModels] = useState<Phone[]>(newModels);
-
-
-    const handleFwButton = () => {
-        if (visibleNewModels.length > 3) {
-            const result = visibleNewModels.slice(1, 7);
-            setVisibleNewModels(result);
-        }
-
-    };
-
-    const handleRwButton = () => {
-        // logic
-    };
+    const visibleHotPhonesPerPage = hotPricesModels.slice(firstHotItemIndex, lastHotItemIndex);
 
     const backToTopClick = () => {
         backToTopRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -64,6 +68,7 @@ export const HomePage: React.FC = () => {
     const handleToggleButton = () => {
         setIsOpen((state) => !state);
     };
+
 
     return (
         <>
@@ -90,51 +95,23 @@ export const HomePage: React.FC = () => {
                         </Carousel.Item>
                     </Carousel>
                 </div>
-                <div data-cy="card_carousel">
-                    <div className="main_subtitle_container">
-                        <h2 className='main_subtitle'>Brand new models</h2>
-                        <div className='main_btns'>
-                            <button
-                                className="link_button"
-                                data-cy="prevLink"
-                                onClick={handleRwButton}
-                            >
-                              «
-                            </button>
-                            <button
-                                className="link_button"
-                                data-cy="prevLink"
-                                onClick={handleFwButton}
-                            >
-                              »
-                            </button>
-                        </div>
-                    </div>
-                    <PhoneList phones={visibleNewModels} />
-                </div>
+                <CardCarousel
+                    phones={visibleNewPhonesPerPage}
+                    title={'Brand new models'}
+                    setCurrentPage={setCurrentPageNewModels}
+                    currentPage={currentPageNewModels}
+                    itemsPerPage={selectedItemsPerPage}
+                    dataCyID={1}
+                />
                 <ShopSection />
-                <div data-cy="card_carousel">
-                    <div className="main_subtitle_container">
-                        <h2 className='main_subtitle' style={{ marginBottom: '24px'  }}>Hot prices</h2>
-                        <div className='main_btns'>
-                            <button
-                                className="link_button"
-                                data-cy="prevLink"
-                                // onClick={() => {}}
-                            >
-                              «
-                            </button>
-                            <button
-                                className="link_button"
-                                data-cy="prevLink"
-                                onClick={handleFwButton}
-                            >
-                              »
-                            </button>
-                        </div>
-                    </div>
-                    <PhoneListWithDiscount phones={hotPricesModels} />
-                </div>
+                <CardCarousel
+                    phones={visibleHotPhonesPerPage}
+                    title={'Hot prices'}
+                    setCurrentPage={setCurrentPageHotPrices}
+                    currentPage={currentPageHotPrices}
+                    itemsPerPage={selectedItemsPerPage}
+                    dataCyID={2}
+                />
             </div>
             <Footer backToTopClick={backToTopClick} />
         </>
