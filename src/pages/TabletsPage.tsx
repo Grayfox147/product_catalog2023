@@ -25,7 +25,7 @@ export const TabletsPage:React.FC = () => {
             {isOpen && (
                 <BurguerMenu  handleOpen={handleToggleButton} />
             )}
-            <div className='main' ref={backToTopRef} data-cy="tablet-page">
+            <div className='tablet-content' ref={backToTopRef} data-cy="tablet-page">
                 <div className="tabs_path">
                     <NavLink
                         className='homeIcon'

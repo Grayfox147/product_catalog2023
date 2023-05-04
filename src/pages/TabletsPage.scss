@@ -1,0 +1,11 @@
+.tablet-content {
+  background-color: $main-background-color;
+  padding: 16px;
+  color: $main-font-color;
+  font-family: 'bold';
+  height: 50vh;
+
+  @include onTablet {
+    height: 75vh;
+  }
+}
