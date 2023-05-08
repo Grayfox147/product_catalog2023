@@ -74,6 +74,18 @@ export const ItemCardPage:React.FC = () => {
         backToTopRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
+    const updateUrlByColor = (color: string) => {
+        const splittedId = selectedItemId?.split('-');
+
+        if (!splittedId) {
+            return selectedItemId;
+        }
+
+        splittedId[splittedId.length - 1] = color;
+
+        return splittedId.join('-');
+    };
+
     return (
         <>
             <h1 hidden>ItemCardPage</h1>
@@ -116,6 +128,20 @@ export const ItemCardPage:React.FC = () => {
                                 >
                                     <img src={`../product_catalog2023/${img}`} alt="Iphone" className='item-sm_image'/>
                                 </button>
+                            ))}
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                            <h3 className='item_subtitle'>Available colors</h3>
+                            <p className='item_subtitleId'>{selectedPhone.namespaceId}</p>
+                        </div>
+                        <div className='color-palette_container'>
+                            {selectedPhone.colorsAvailable.map((color) => (
+                                <Link
+                                    to={`/ItemCardPage/${updateUrlByColor(color)}`}
+                                    key={color}
+                                    style={{ backgroundColor: getProductColors(color) }}
+                                    className='color-palette_item'
+                                />
                             ))}
                         </div>
                     </>

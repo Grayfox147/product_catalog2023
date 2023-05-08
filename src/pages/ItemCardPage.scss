@@ -44,6 +44,7 @@
 
 .item-sm-images_container {
   display: flex;
+  margin-bottom: 40px;
 }
 
 .item-button_image {
@@ -54,4 +55,30 @@
 
 .item-sm_image {
   height: 90%;
+}
+
+.item_subtitle {
+  font-size: 12px;
+  font-family: 'semi-bold';
+  font-weight: 700;
+  color: #75767F;
+}
+
+.item_subtitleId {
+  font-size: 12px;
+  font-family: 'semi-bold';
+  font-weight: 700;
+  color: #4A4D58;
+}
+
+.color-palette_container {
+  display: flex;
+  gap: 10px;
+}
+
+.color-palette_item {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #4A4D58;
 }
