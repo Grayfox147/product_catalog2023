@@ -1,29 +1,70 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Header } from '../components/header';
 import { BurguerMenu } from '../components/burguerMenu';
-import phones from '../api/phones.json';
 import Footer from '../components/footer/Footer';
 import { Link, NavLink, useMatch } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
 import arrorLeft from '../Icons/Chevron (Arrow left).svg';
-import { Phone } from '../types/Phone';
+import { PhoneDetails } from '../types/Phone';
 
 export const ItemCardPage:React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const backToTopRef = useRef<HTMLDivElement>(null);
     const match = useMatch('/ItemCardPage/:phoneitemId');
     const selectedItemId = match?.params.phoneitemId;
-    const [selectedPhone, setSelectedPhone] = useState<Phone | null>(null);
+    const [selectedPhone, setSelectedPhone] = useState<PhoneDetails | null>(null);
+    // const [isLoading, setIsLoading] = useState(false);
+    const [images, setImages] = useState(selectedPhone?.images);
+    const [currentImage, setCurrentImage] = useState('');
 
-    const findPhone = (phoneitemId: string) => {
-        return phones.find((phone) => phone.itemId === phoneitemId);
+    const getProductColors = (color: string) => {
+        const customColors = [
+            { customColor: 'gold', cssColor: '#F9E5C9' },
+            { customColor: 'spacegray', cssColor: '#535150' },
+            { customColor: 'silver', cssColor: '#EBEBE3' },
+            { customColor: 'black', cssColor: '#1F2020' },
+            { customColor: 'rosegold', cssColor: '#FAD7BD' },
+            { customColor: 'white', cssColor: '#FFFFFF' },
+            { customColor: 'red', cssColor: '#BA0C2E' },
+            { customColor: 'yellow', cssColor: '#FFE681' },
+            { customColor: 'green', cssColor: '#AEE1CD' },
+            { customColor: 'purple', cssColor: '#B8AFE6' },
+            { customColor: 'midnightgreen', cssColor: '#4E5851' },
+            { customColor: 'coral', cssColor: '#EE7762' },
+        ];
+
+        const foundColor = customColors.find((item) => item.customColor === color);
+
+        return foundColor?.cssColor;
     };
 
     useEffect(() => {
-        if (selectedItemId) {
-            setSelectedPhone(findPhone(selectedItemId) as Phone);
+        // setIsLoading(true);
+
+        fetch(`../product_catalog2023/api/phones/${selectedItemId}.json`, {
+            headers: {
+                'Content-Type': 'application/json',
+            } ,
+        })
+            .then((response) => response.json())
+            .then((phoneData: PhoneDetails) => {
+                setSelectedPhone(phoneData);
+            })
+            .catch(() => {
+                alert('failed to load the phone data');
+            })
+            .finally(() => {
+                // setIsLoading(false);
+            });
+    }, [selectedItemId]);
+
+    useEffect(() => {
+        setImages(selectedPhone?.images);
+
+        if (images) {
+            setCurrentImage(images[0]);
         }
-    }, []);
+    }, [selectedPhone, images]);
 
     const handleToggleButton = () => {
         setIsOpen((state) => !state);
@@ -60,9 +101,22 @@ export const ItemCardPage:React.FC = () => {
                 {selectedPhone && (
                     <>
                         <h1 className='item_title'>{selectedPhone.name}</h1>
-                        <img src={`product_catalog2023/${selectedPhone.image}`} alt="phone-image" />
-                        <div>
-
+                        <div className='item-main-image_container'>
+                            <img src={`../product_catalog2023/${currentImage}`} alt="Iphone"  className='item_image'/>
+                        </div>
+                        <div className='item-sm-images_container'>
+                            {images?.map((img) => (
+                                <button
+                                    type='button'
+                                    key={img}
+                                    onClick={() => {
+                                        setCurrentImage(img);
+                                    }}
+                                    className='item-button_image'
+                                >
+                                    <img src={`../product_catalog2023/${img}`} alt="Iphone" className='item-sm_image'/>
+                                </button>
+                            ))}
                         </div>
                     </>
                 )}

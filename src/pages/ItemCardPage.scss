@@ -26,4 +26,32 @@
   font-size: 22px;
   font-family: 'bold';
   font-weight: 800;
+  margin-bottom: 38px;
+}
+
+.item-main-image_container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 275px;
+  height: 275px;
+}
+
+.item_image {
+ height: 90%;
+}
+
+.item-sm-images_container {
+  display: flex;
+}
+
+.item-button_image {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+}
+
+.item-sm_image {
+  height: 90%;
 }
