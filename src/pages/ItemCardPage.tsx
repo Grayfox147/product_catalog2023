@@ -218,6 +218,54 @@ export const ItemCardPage:React.FC = () => {
                                 <div className='card_value'>{selectedPhone.ram}</div>
                             </div>
                         </div>
+                        <h2 className='cardSection-title'>About</h2>
+                        <div  className='divisory-line' style={{ marginBottom: '32px' }}/>
+                        {selectedPhone.description.map((content) => (
+                            <>
+                                <h3 className='cardSection-subtitle' key={content.title}>{content.title}</h3>
+                                <p className='cardSection-text'>
+                                    {content.text}
+                                </p>
+                            </>
+                        ))}
+                        <h2 className='cardSection-title' style={{ marginTop: '56px' }}>Tech specs</h2>
+                        <div  className='divisory-line' style={{ marginBottom: '30px' }}/>
+                        <div className='card_text_container' style={{ marginBottom: '56px' }}>
+                            <div className='card_specs'>
+                                <div className='card_text'>Screen</div>
+                                <div className='card_value'>{selectedPhone.screen}</div>
+                            </div>
+                            <div className='card_specs'>
+                                <div className='card_text'>Resolution</div>
+                                <div className='card_value'>{selectedPhone.resolution}</div>
+                            </div>
+                            <div className='card_specs'>
+                                <div className='card_text'>Processor</div>
+                                <div className='card_value'>{selectedPhone.processor}</div>
+                            </div>
+                            <div className='card_specs'>
+                                <div className='card_text'>RAM</div>
+                                <div className='card_value'>{selectedPhone.ram}</div>
+                            </div>
+                            <div className='card_specs'>
+                                <div className='card_text'>Built in memory</div>
+                                <div className='card_value'>{selectedPhone.capacityAvailable}</div>
+                            </div>
+                            <div className='card_specs'>
+                                <div className='card_text'>Camera</div>
+                                <div className='card_value'>{selectedPhone.camera}</div>
+                            </div>
+                            <div className='card_specs'>
+                                <div className='card_text'>Zoom</div>
+                                <div className='card_value'>{selectedPhone.zoom}</div>
+                            </div>
+                            <div className='card_specs'>
+                                <div className='card_text'>Cell</div>
+                                {selectedPhone.cell.map((content) => (
+                                    <div className='card_value' key={content}>{`${content}`}</div>
+                                ))}
+                            </div>
+                        </div>
                     </>
                 )}
             </div>
