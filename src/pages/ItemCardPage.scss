@@ -74,6 +74,7 @@
 .color-palette_container {
   display: flex;
   gap: 10px;
+  margin-bottom: 24px;
 }
 
 .color-palette_item {
@@ -81,4 +82,46 @@
   height: 30px;
   border-radius: 50%;
   border: 2px solid #4A4D58;
+
+  &:hover {
+    border: 1px solid #75767F;
+    scale: 1.02;
+  }
+
+  &-active {
+    border: 2px solid $main-font-color;
+  }
+}
+
+.divisory-line {
+  background-color: #3B3E4A;
+  width: 90vw;
+  border: 1px solid #3B3E4A;
+  margin-bottom: 24px;
+}
+
+.capacity-button_container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.capacity-btn {
+  display: flex;
+  height: 32px;
+  background-color: transparent;
+  color: $main-font-color;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'regular';
+  align-items: center;
+  text-decoration: none;
+  border: 1px solid #4A4D58;
+  padding: 8px;
+
+    &-active {
+      background-color: $main-font-color;
+      color: black;
+      border: 1px solid $main-font-color;
+    }
 }

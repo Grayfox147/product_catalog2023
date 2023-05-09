@@ -6,6 +6,9 @@ import { Link, NavLink, useMatch } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
 import arrorLeft from '../Icons/Chevron (Arrow left).svg';
 import { PhoneDetails } from '../types/Phone';
+import classNames from 'classnames';
+import { Button } from 'react-bootstrap';
+import { FiHeart } from 'react-icons/fi';
 
 export const ItemCardPage:React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -86,6 +89,25 @@ export const ItemCardPage:React.FC = () => {
         return splittedId.join('-');
     };
 
+    const updateUrlByCapacity = (capacity: string) => {
+        const splittedId = selectedItemId?.split('-');
+
+        if (!splittedId) {
+            return selectedItemId;
+        }
+
+        const updatedId = splittedId.map((part) => {
+            if (part.includes('gb')) {
+                return capacity.toLowerCase();
+            }
+
+            return part;
+        });
+
+        return updatedId.join('-');
+    };
+
+
     return (
         <>
             <h1 hidden>ItemCardPage</h1>
@@ -140,9 +162,61 @@ export const ItemCardPage:React.FC = () => {
                                     to={`/ItemCardPage/${updateUrlByColor(color)}`}
                                     key={color}
                                     style={{ backgroundColor: getProductColors(color) }}
-                                    className='color-palette_item'
+                                    className={classNames(
+                                        'color-palette_item',
+                                        { 'color-palette_item-active': selectedPhone.color === color }
+                                    )}
                                 />
                             ))}
+                        </div>
+                        <div  className='divisory-line'/>
+                        <p className='item_subtitle' style={{ marginBottom: '8px' }}>Select capacity</p>
+                        <div className='capacity-button_container'>
+                            {selectedPhone.capacityAvailable.map((capacity) => (
+                                <Link
+                                    key={capacity}
+                                    to={`/ItemCardPage/${updateUrlByCapacity(capacity)}`}
+                                    className={classNames(
+                                        'capacity-btn',
+                                        { 'capacity-btn-active': selectedPhone.capacity === capacity }
+                                    )}
+                                >
+                                    {capacity}
+                                </Link>
+                            ))}
+                        </div>
+                        <div  className='divisory-line' style={{ marginBottom: '38px' }}/>
+                        <div className='card_subtitle_container'>
+                            <div className='card_subtitle'>
+                                ${selectedPhone.priceDiscount}
+                            </div>
+                            <div className='card_subtitle_dashed'>
+                                ${selectedPhone.priceRegular}
+                            </div>
+                        </div>
+                        <div className='card_btn_container' style={{ marginBottom: '32px' }}>
+                            <Button>Add to cart</Button>
+                            <button className='like_button'>
+                                <FiHeart className='heart'/>
+                            </button>
+                        </div>
+                        <div className='card_text_container' style={{ marginBottom: '56px' }}>
+                            <div className='card_specs'>
+                                <div className='card_text'>Screen</div>
+                                <div className='card_value'>{selectedPhone.screen}</div>
+                            </div>
+                            <div className='card_specs'>
+                                <div className='card_text'>Resolution</div>
+                                <div className='card_value'>{selectedPhone.resolution}</div>
+                            </div>
+                            <div className='card_specs'>
+                                <div className='card_text'>Processor</div>
+                                <div className='card_value'>{selectedPhone.processor}</div>
+                            </div>
+                            <div className='card_specs'>
+                                <div className='card_text'>RAM</div>
+                                <div className='card_value'>{selectedPhone.ram}</div>
+                            </div>
                         </div>
                     </>
                 )}
