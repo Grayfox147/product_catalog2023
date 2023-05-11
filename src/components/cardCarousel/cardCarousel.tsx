@@ -1,38 +1,77 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { PhoneList } from '../phoneList';
 import { Phone } from '../../types/Phone';
 import { PhoneListWithDiscount } from '../PhoneListWDiscount';
 
+const gapSize = 16;
+const mobileWidth = 212;
+const tabletWidth = 237;
+const desktopWidth = 272;
+
 type CardCarouselProps = {
   title: string,
-  setCurrentPage: Dispatch<SetStateAction<number>>,
   phones: Phone[],
-  currentPage: number,
-  itemsPerPage: number,
   dataCyID: number
 };
 
 export const CardCarousel: React.FC<CardCarouselProps> = ({
     title,
-    setCurrentPage,
     phones,
-    currentPage,
-    itemsPerPage,
     dataCyID,
 }) => {
-    const [total] = useState(phones.length);
-    const isFirstPage = currentPage === 1;
-    const lastPage = Math.ceil(total /itemsPerPage);
-    const isLastPage = currentPage === lastPage;
+    const  [currentPage, setCurrentPage] = useState(0);
+    const [cardWidth, setCardWidth] = useState(mobileWidth);
+    const [step, setStep] = useState(1);
+
+    const productWidth = (phones.length * cardWidth) + ((phones.length - 1) * gapSize);
+
+    const productCardsRef = useRef<HTMLDivElement>(null);
+    const refWidth = productCardsRef.current?.clientWidth ?? 0;
+    const maxPage = productWidth - refWidth;
 
 
     const handleFw = () => {
-        setCurrentPage((current) => current + 1);
+        setCurrentPage(Math.min(currentPage + step * (cardWidth - gapSize), maxPage));
     };
 
     const handleRw = () => {
-        setCurrentPage((current) => current - 1);
+        setCurrentPage(Math.max(currentPage - step * (cardWidth - gapSize), 0));
     };
+
+    useEffect(() => {
+        if (productCardsRef.current) {
+            productCardsRef.current.style.transform = `translateX(-${currentPage}.px)`;
+        }
+    }, [currentPage]);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 1200) {
+                setCardWidth(desktopWidth);
+                setStep(4);
+            }
+
+            if (window.innerWidth < 1200) {
+                setCardWidth(tabletWidth);
+                setStep(2);
+            }
+
+            if (window.innerWidth < 640) {
+                setCardWidth(mobileWidth);
+                setStep(1);
+            }
+
+            setCurrentPage(0);
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [window.innerWidth]);
 
     return (
         <div data-cy="card_carousel" id={`${dataCyID}`}>
@@ -43,7 +82,7 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
                         className="link_button"
                         data-cy="prevLink"
                         onClick={handleRw}
-                        aria-disabled={isFirstPage}
+                        disabled={currentPage === 0}
                     >
                               «
                     </button>
@@ -51,7 +90,7 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
                         className="link_button"
                         data-cy="prevLink"
                         onClick={handleFw}
-                        aria-disabled={isLastPage}
+                        disabled={currentPage === maxPage}
                     >
                               »
                     </button>

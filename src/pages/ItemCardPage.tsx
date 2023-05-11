@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Header } from '../components/header';
 import { BurguerMenu } from '../components/burguerMenu';
 import Footer from '../components/footer/Footer';
@@ -8,7 +8,9 @@ import arrorLeft from '../Icons/Chevron (Arrow left).svg';
 import { PhoneDetails } from '../types/Phone';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
+import phones from '../api/phones.json';
 import { FiHeart } from 'react-icons/fi';
+import { CardCarousel } from '../components/cardCarousel';
 
 export const ItemCardPage:React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +21,7 @@ export const ItemCardPage:React.FC = () => {
     // const [isLoading, setIsLoading] = useState(false);
     const [images, setImages] = useState(selectedPhone?.images);
     const [currentImage, setCurrentImage] = useState('');
+
 
     const getProductColors = (color: string) => {
         const customColors = [
@@ -40,6 +43,11 @@ export const ItemCardPage:React.FC = () => {
 
         return foundColor?.cssColor;
     };
+
+    const hotPricesModels = useMemo(() => {
+        return [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
+    }, []);
+
 
     useEffect(() => {
         // setIsLoading(true);
@@ -195,7 +203,7 @@ export const ItemCardPage:React.FC = () => {
                             </div>
                         </div>
                         <div className='card_btn_container' style={{ marginBottom: '32px' }}>
-                            <Button>Add to cart</Button>
+                            <Button style={{ width: '80%' }}>Add to cart</Button>
                             <button className='like_button'>
                                 <FiHeart className='heart'/>
                             </button>
@@ -266,6 +274,11 @@ export const ItemCardPage:React.FC = () => {
                                 ))}
                             </div>
                         </div>
+                        <CardCarousel
+                            phones={hotPricesModels}
+                            title={'You may also like'}
+                            dataCyID={2}
+                        />
                     </>
                 )}
             </div>

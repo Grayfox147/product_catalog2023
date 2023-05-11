@@ -15,20 +15,6 @@ import { CardCarousel } from '../components/cardCarousel';
 export const HomePage: React.FC = () => {
     const backToTopRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
-    const [currentPageNewModels, setCurrentPageNewModels] = useState(1);
-    const [currentPageHotPrices, setCurrentPageHotPrices] = useState(1);
-    const selectedItemsPerPage = 4;
-
-    const [total] = useState(phones.length);
-    const firstNewItemIndex = currentPageNewModels * selectedItemsPerPage - selectedItemsPerPage;
-    const lastNewItemIndex = (currentPageNewModels * selectedItemsPerPage) <= total
-        ? (currentPageNewModels * selectedItemsPerPage)
-        : (total);
-
-    const firstHotItemIndex = currentPageHotPrices * selectedItemsPerPage - selectedItemsPerPage;
-    const lastHotItemIndex = (currentPageHotPrices * selectedItemsPerPage) <= total
-        ? (currentPageHotPrices * selectedItemsPerPage)
-        : (total);
 
     const newModels = useMemo( () => {
         return  [...phones].sort((a, b) => b.year - a.year);
@@ -36,14 +22,9 @@ export const HomePage: React.FC = () => {
     []
     );
 
-    const visibleNewPhonesPerPage = newModels.slice(firstNewItemIndex, lastNewItemIndex);
-
-
     const hotPricesModels = useMemo(() => {
         return [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
     }, []);
-
-    const visibleHotPhonesPerPage = hotPricesModels.slice(firstHotItemIndex, lastHotItemIndex);
 
     const backToTopClick = () => {
         backToTopRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -80,20 +61,14 @@ export const HomePage: React.FC = () => {
                     </Carousel>
                 </div>
                 <CardCarousel
-                    phones={visibleNewPhonesPerPage}
+                    phones={newModels}
                     title={'Brand new models'}
-                    setCurrentPage={setCurrentPageNewModels}
-                    currentPage={currentPageNewModels}
-                    itemsPerPage={selectedItemsPerPage}
                     dataCyID={1}
                 />
                 <ShopSection />
                 <CardCarousel
-                    phones={visibleHotPhonesPerPage}
+                    phones={hotPricesModels}
                     title={'Hot prices'}
-                    setCurrentPage={setCurrentPageHotPrices}
-                    currentPage={currentPageHotPrices}
-                    itemsPerPage={selectedItemsPerPage}
                     dataCyID={2}
                 />
             </div>
