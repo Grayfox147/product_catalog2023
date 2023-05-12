@@ -6,7 +6,7 @@ import navbar_logo from '../../Icons/logo__header_phone.svg';
 
 export const BurguerMenu: React.FC = () => {
     return (
-        <>
+        <div style={{ height: '100vh', overflow: 'hidden' }}>
             <nav
                 className='navbar'
                 data-cy='navbar'
@@ -69,6 +69,6 @@ export const BurguerMenu: React.FC = () => {
                     </Link>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
