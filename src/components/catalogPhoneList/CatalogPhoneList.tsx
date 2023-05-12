@@ -15,6 +15,7 @@ export const CatalogPhoneList:React.FC<CatalogPhonesListProps> = ({
                 <PhoneCard
                     phone={phone}
                     key={phone.id}
+                    dataCyID={2}
                 />
             ))}
         </div>

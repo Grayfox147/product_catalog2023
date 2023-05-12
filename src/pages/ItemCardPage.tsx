@@ -223,9 +223,11 @@ export const ItemCardPage:React.FC = () => {
                         {selectedPhone.description.map((content) => (
                             <>
                                 <h3 className='cardSection-subtitle' key={content.title}>{content.title}</h3>
-                                <p className='cardSection-text'>
-                                    {content.text}
-                                </p>
+                                {content.text.map((part) => (
+                                    <p className='cardSection-text' key={part}>
+                                        {part}
+                                    </p>
+                                ))}
                             </>
                         ))}
                         <h2 className='cardSection-title' style={{ marginTop: '56px' }}>Tech specs</h2>
@@ -261,9 +263,9 @@ export const ItemCardPage:React.FC = () => {
                             </div>
                             <div className='card_specs'>
                                 <div className='card_text'>Cell</div>
-                                {selectedPhone.cell.map((content) => (
-                                    <div className='card_value' key={content}>{`${content}`}</div>
-                                ))}
+                                <div className='card_value'>
+                                    {selectedPhone.cell.join(', ')}
+                                </div>
                             </div>
                         </div>
                         <CardCarousel

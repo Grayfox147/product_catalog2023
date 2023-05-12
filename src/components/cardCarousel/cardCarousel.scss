@@ -35,3 +35,11 @@ border: 1px solid #3B3E4A;
   color: #F1F2F9;
 }
 }
+
+.phone_list {
+  display: flex;
+  margin: 0 0 24px 0;
+  gap: 16px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}

@@ -9,15 +9,18 @@ import { Link } from 'react-router-dom';
 
 type PhoneCardProps = {
 phone: Phone
+dataCyID: number,
 };
 
 export const PhoneCard: React.FC<PhoneCardProps> = ({
     phone,
+    dataCyID,
 }) => {
     const {
         image,
         name,
         price,
+        fullPrice,
         screen,
         capacity,
         ram,
@@ -44,9 +47,16 @@ export const PhoneCard: React.FC<PhoneCardProps> = ({
                         {name}
                     </Card.Title>
                 </Link>
-                <Card.Subtitle className='card_subtitle'>
+                <div style={{ display: 'flex', gap: '8px'}}>
+                    <Card.Subtitle className='card_subtitle'>
                       ${price}
-                </Card.Subtitle>
+                    </Card.Subtitle>
+                    {dataCyID === 2 && (
+                        <Card.Subtitle className='card_subtitle_dashed'>
+                   ${fullPrice}
+                        </Card.Subtitle>
+                    )}
+                </div>
                 <div className='card_line'></div>
                 <div className='card_text_container'>
                     <div className='card_specs'>

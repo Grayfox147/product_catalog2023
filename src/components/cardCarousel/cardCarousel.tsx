@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { PhoneList } from '../phoneList';
 import { Phone } from '../../types/Phone';
-import { PhoneListWithDiscount } from '../PhoneListWDiscount';
+import { PhoneCard } from '../phoneCard';
+import { Row } from 'react-bootstrap';
 
 const gapSize = 16;
 const mobileWidth = 212;
@@ -20,7 +20,7 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
     dataCyID,
 }) => {
     const  [currentPage, setCurrentPage] = useState(0);
-    const [cardWidth, setCardWidth] = useState(mobileWidth);
+    const [cardWidth, setCardWidth] = useState(212);
     const [step, setStep] = useState(1);
 
     const productWidth = (phones.length * cardWidth) + ((phones.length - 1) * gapSize);
@@ -31,16 +31,20 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
 
 
     const handleFw = () => {
-        setCurrentPage(Math.min(currentPage + step * (cardWidth - gapSize), maxPage));
+        setCurrentPage(
+            Math.min(currentPage + step * (cardWidth + gapSize), maxPage)
+        );
     };
 
     const handleRw = () => {
-        setCurrentPage(Math.max(currentPage - step * (cardWidth - gapSize), 0));
+        setCurrentPage(
+            Math.max(currentPage - step * (cardWidth - gapSize), 0)
+        );
     };
 
     useEffect(() => {
         if (productCardsRef.current) {
-            productCardsRef.current.style.transform = `translateX(-${currentPage}.px)`;
+            productCardsRef.current.style.transform = `translateX(-${currentPage}px)`;
         }
     }, [currentPage]);
 
@@ -96,13 +100,15 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
                     </button>
                 </div>
             </div>
-            {dataCyID === 1
-                ? (
-                    <PhoneList phones={phones} />
-                )
-                : (
-                    <PhoneListWithDiscount phones={phones} />
-                )}
+            <Row className="phone_list" ref={productCardsRef}>
+                {phones.map((phone) => (
+                    <PhoneCard
+                        phone={phone}
+                        key={phone.id}
+                        dataCyID={dataCyID}
+                    />
+                ))}
+            </Row>
         </div>
     );
 };
