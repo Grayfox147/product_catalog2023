@@ -2,67 +2,73 @@ import React from 'react';
 import { FiHeart } from 'react-icons/fi';
 import { AiOutlineInbox } from 'react-icons/ai';
 import { Link, NavLink } from 'react-router-dom';
-// import classNames from 'classnames';
+import navbar_logo from '../../Icons/logo__header_phone.svg';
 
-type BurguerMenuProps = {
-  handleOpen: () => void,
-};
-
-export const BurguerMenu: React.FC<BurguerMenuProps> = ({ handleOpen }) => {
+export const BurguerMenu: React.FC = () => {
     return (
-        <div className='burguer_menu'>
-            <div className='burguer_links'>
-                <ul>
-                    <NavLink
-                        className='burguer_link'
+        <>
+            <nav
+                className='navbar'
+                data-cy='navbar'
+            >
+                <div>
+                    <img src={navbar_logo} alt="navbarLogo" className='navbar_logo'/>
+                </div>
+                <div className='toggle_container'>
+                    <Link
                         to='/product_catalog2023'
-                        onClick={handleOpen}
-                    >
+                        className='toggle_button_close'
+                    />
+                </div>
+            </nav>
+            <div className='burguer_menu'>
+                <div className='burguer_links'>
+                    <ul>
+                        <NavLink
+                            className='burguer_link'
+                            to='/product_catalog2023'
+                        >
                       HOME
-                    </NavLink>
-                    <NavLink
-                        className='burguer_link'
-                        to='/phones'
-                        onClick={handleOpen}
-                    >
+                        </NavLink>
+                        <NavLink
+                            className='burguer_link'
+                            to='/phones'
+                        >
                       PHONES
-                    </NavLink>
-                    <NavLink
-                        className='burguer_link'
-                        to='/tablets'
-                        onClick={handleOpen}
-                    >
+                        </NavLink>
+                        <NavLink
+                            className='burguer_link'
+                            to='/tablets'
+                        >
                       TABLETS
-                    </NavLink>
-                    <NavLink
-                        className='burguer_link'
-                        to='/accesories'
-                        onClick={handleOpen}
-                    >
+                        </NavLink>
+                        <NavLink
+                            className='burguer_link'
+                            to='/accesories'
+                        >
                       ACCESSORIES
-                    </NavLink>
-                </ul>
+                        </NavLink>
+                    </ul>
+                </div>
+                <div className='burguer_btns'>
+                    <Link
+                        className='burguer_btns-link'
+                        to={'/favourites'}
+                    >
+                        <button>
+                            <FiHeart color='#F1F2F9' size={10}/>
+                        </button>
+                    </Link>
+                    <Link
+                        className='burguer_btns-link'
+                        to={'/shoppingCart'}
+                    >
+                        <button>
+                            <AiOutlineInbox color='#F1F2F9' size={10}/>
+                        </button>
+                    </Link>
+                </div>
             </div>
-            <div className='burguer_btns'>
-                <Link
-                    className='burguer_btns-link'
-                    to={'/favourites'}
-                    onClick={handleOpen}
-                >
-                    <button>
-                        <FiHeart color='#F1F2F9' size={10}/>
-                    </button>
-                </Link>
-                <Link
-                    className='burguer_btns-link'
-                    to={'/shoppingCart'}
-                    onClick={handleOpen}
-                >
-                    <button>
-                        <AiOutlineInbox color='#F1F2F9' size={10}/>
-                    </button>
-                </Link>
-            </div>
-        </div>
+        </>
     );
 };

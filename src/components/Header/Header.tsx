@@ -4,15 +4,8 @@ import { FiHeart } from 'react-icons/fi';
 import { AiOutlineInbox } from 'react-icons/ai';
 import classNames from 'classnames';
 import { Link, NavLink } from 'react-router-dom';
-type HeaderProps = {
-  handleToggleButton: () => void,
-  isOpen: boolean
-};
 
-export const Header: React.FC<HeaderProps> = ({
-    handleToggleButton,
-    isOpen,
-}) => {
+export const Header: React.FC = () => {
     return (
         <nav
             className='navbar'
@@ -22,16 +15,9 @@ export const Header: React.FC<HeaderProps> = ({
                 <img src={navbar_logo} alt="navbarLogo" className='navbar_logo'/>
             </div>
             <div className='toggle_container'>
-                <a
-                    href="#"
-                    className={classNames(
-                        {'toggle_button': !isOpen},
-                        {'toggle_button_close': isOpen}
-                    )}
-                    onClick={(event) => {
-                        event.preventDefault();
-                        handleToggleButton();
-                    }}
+                <Link
+                    to='/menu'
+                    className='toggle_button'
                 />
             </div>
             <div className='navbar_links'>

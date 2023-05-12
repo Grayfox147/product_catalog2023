@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Header } from '../components/header';
-import { BurguerMenu } from '../components/burguerMenu';
 import Footer from '../components/footer/Footer';
 import { Link, NavLink, useMatch } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
@@ -13,7 +12,6 @@ import { FiHeart } from 'react-icons/fi';
 import { CardCarousel } from '../components/cardCarousel';
 
 export const ItemCardPage:React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
     const backToTopRef = useRef<HTMLDivElement>(null);
     const match = useMatch('/ItemCardPage/:phoneitemId');
     const selectedItemId = match?.params.phoneitemId;
@@ -77,9 +75,6 @@ export const ItemCardPage:React.FC = () => {
         }
     }, [selectedPhone, images]);
 
-    const handleToggleButton = () => {
-        setIsOpen((state) => !state);
-    };
 
     const backToTopClick = () => {
         backToTopRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -119,10 +114,7 @@ export const ItemCardPage:React.FC = () => {
     return (
         <>
             <h1 hidden>ItemCardPage</h1>
-            <Header handleToggleButton={handleToggleButton} isOpen={isOpen} />
-            {isOpen && (
-                <BurguerMenu  handleOpen={handleToggleButton} />
-            )}
+            <Header />
             <div className='main' ref={backToTopRef} data-cy="catalog-phones">
                 <div className="tabs_path">
                     <NavLink

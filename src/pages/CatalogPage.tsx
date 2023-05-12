@@ -1,7 +1,6 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { Header } from '../components/header';
 import phones from '../api/phones.json';
-import { BurguerMenu } from '../components/burguerMenu';
 import Footer from '../components/footer/Footer';
 import { NavLink } from 'react-router-dom';
 import arrowRigth from '../Icons/Chevron (Arrow Right).svg';
@@ -12,7 +11,6 @@ import { Pagination } from '../components/pagination';
 
 export const CatalogPage: React.FC = () => {
     const backToTopRef = useRef<HTMLDivElement>(null);
-    const [isOpen, setIsOpen] = useState(false);
     const [sortBy, setSortBy] = useState('Newest');
     const [itemsPerPage, setItemsPerPage] = useState('16');
     const [currentPage, setCurrentPage] = useState(1);
@@ -29,10 +27,6 @@ export const CatalogPage: React.FC = () => {
 
     const backToTopClick = () => {
         backToTopRef.current?.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const handleToggleButton = () => {
-        setIsOpen((state) => !state);
     };
 
     const sortPhones = (): Phone[] => {
@@ -60,10 +54,7 @@ export const CatalogPage: React.FC = () => {
     return (
         <>
             <h1 hidden>Product catalog</h1>
-            <Header handleToggleButton={handleToggleButton} isOpen={isOpen} />
-            {isOpen && (
-                <BurguerMenu handleOpen={handleToggleButton}/>
-            )}
+            <Header/>
             <div className='main' ref={backToTopRef} data-cy="catalog-phones">
                 <div className="tabs_path">
                     <NavLink

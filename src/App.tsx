@@ -10,6 +10,7 @@ import { TabletsPage } from './pages/TabletsPage';
 import { AccesoriesPage } from './pages/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { ShoppingCartPage } from './pages/ShoppingCartPage';
+import { BurguerMenu } from './components/burguerMenu';
 const App: React.FC = () => {
 
     return (
@@ -20,6 +21,12 @@ const App: React.FC = () => {
                         path="/product_catalog2023"
                         element={
                             <HomePage />
+                        }
+                    />
+                    <Route
+                        path="/menu"
+                        element={
+                            <BurguerMenu />
                         }
                     />
                     <Route
