@@ -1,8 +1,6 @@
 import { Header } from '../components/header';
 import { Carousel } from 'react-bootstrap';
 import Footer from '../components/footer/Footer';
-import phones from '../api/phones.json';
-import { useMemo } from 'react';
 import bannerAccesories from '../img/banner-accessories.png';
 import bannerPhones from '../img/banner-phones.png';
 import bannerTablets from '../img/banner-tablets.png';
@@ -13,16 +11,6 @@ import { CardCarousel } from '../components/cardCarousel';
 
 export const HomePage: React.FC = () => {
     const backToTopRef = useRef<HTMLDivElement>(null);
-
-    const newModels = useMemo( () => {
-        return  [...phones].sort((a, b) => b.year - a.year);
-    },
-    []
-    );
-
-    const hotPricesModels = useMemo(() => {
-        return [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
-    }, []);
 
     const backToTopClick = () => {
         backToTopRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -40,24 +28,22 @@ export const HomePage: React.FC = () => {
                             <BannerImage />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img src={bannerAccesories} alt="accesories" className='carousel_image d-block w-100'/>
+                            <img src={bannerAccesories} alt="accesories" className='carousel_image d-block w-100' />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img src={bannerPhones} alt="phones" className='carousel_image d-block w-100'/>
+                            <img src={bannerPhones} alt="phones" className='carousel_image d-block w-100' />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img src={bannerTablets} alt="tablets" className='carousel_image d-block w-100'/>
+                            <img src={bannerTablets} alt="tablets" className='carousel_image d-block w-100' />
                         </Carousel.Item>
                     </Carousel>
                 </div>
                 <CardCarousel
-                    phones={newModels}
                     title={'Brand new models'}
                     dataCyID={1}
                 />
                 <ShopSection />
                 <CardCarousel
-                    phones={hotPricesModels}
                     title={'Hot prices'}
                     dataCyID={2}
                 />

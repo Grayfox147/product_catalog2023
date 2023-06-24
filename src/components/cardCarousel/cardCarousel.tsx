@@ -1,33 +1,49 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Phone } from '../../types/Phone';
+import phones from '../../api/phones.json';
 import { PhoneCard } from '../phoneCard';
 import { Row } from 'react-bootstrap';
 
-const gapSize = 16;
-const mobileWidth = 212;
-const tabletWidth = 237;
-const desktopWidth = 272;
+
+// const mobileWidth = 212;
+// const tabletWidth = 237;
+// const desktopWidth = 272;
 
 type CardCarouselProps = {
   title: string,
-  phones: Phone[],
-  dataCyID: number
+  dataCyID: number,
 };
 
 export const CardCarousel: React.FC<CardCarouselProps> = ({
     title,
-    phones,
     dataCyID,
 }) => {
     const  [currentPage, setCurrentPage] = useState(0);
-    const [cardWidth, setCardWidth] = useState(212);
     const [step, setStep] = useState(1);
 
-    const productWidth = (phones.length * cardWidth) + ((phones.length - 1) * gapSize);
+    const sortedPhones = [...phones].sort((a, b) => {
+        switch(dataCyID) {
+        case 1:
+            return b.year - a.year;
+        case 2:
+            return (b.fullPrice - b.price) - (a.fullPrice - a.price);
+        default :
+            return a.name.localeCompare(b.name);
+        }
+    });
 
-    const productCardsRef = useRef<HTMLDivElement>(null);
-    const refWidth = productCardsRef.current?.clientWidth ?? 0;
-    const maxPage = productWidth - refWidth;
+    const productCardsRef = useRef<HTMLTableRowElement>(null);
+    const productCardRef = useRef<HTMLTableRowElement>(null);
+
+    const containerWidth = productCardsRef.current?.clientWidth ?? 0;
+    const cardWidth = productCardRef.current?.clientWidth ?? 0;
+
+    const gapSize = 16;
+
+    const productWidth = (sortedPhones.length * cardWidth) + ((sortedPhones.length - 1) * gapSize);
+
+    const maxPage = productWidth - containerWidth;
+
+
 
 
     const handleFw = () => {
@@ -51,17 +67,14 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth >= 1200) {
-                setCardWidth(desktopWidth);
                 setStep(4);
             }
 
             if (window.innerWidth < 1200) {
-                setCardWidth(tabletWidth);
                 setStep(2);
             }
 
             if (window.innerWidth < 640) {
-                setCardWidth(mobileWidth);
                 setStep(1);
             }
 
@@ -101,7 +114,7 @@ export const CardCarousel: React.FC<CardCarouselProps> = ({
                 </div>
             </div>
             <Row className="phone_list" ref={productCardsRef}>
-                {phones.map((phone) => (
+                {sortedPhones.map((phone) => (
                     <PhoneCard
                         phone={phone}
                         key={phone.id}

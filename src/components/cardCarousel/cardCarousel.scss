@@ -38,8 +38,9 @@ border: 1px solid #3B3E4A;
 
 .phone_list {
   display: flex;
-  margin: 0 0 24px 0;
+  margin-top: 24px;
   gap: 16px;
   flex-wrap: nowrap;
+  width: auto;
   overflow: hidden;
 }

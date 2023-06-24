@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Header } from '../components/header';
 import Footer from '../components/footer/Footer';
 import { Link, NavLink, useMatch } from 'react-router-dom';
@@ -7,7 +7,6 @@ import arrorLeft from '../Icons/Chevron (Arrow left).svg';
 import { PhoneDetails } from '../types/Phone';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
-import phones from '../api/phones.json';
 import { FiHeart } from 'react-icons/fi';
 import { CardCarousel } from '../components/cardCarousel';
 
@@ -41,11 +40,6 @@ export const ItemCardPage:React.FC = () => {
 
         return foundColor?.cssColor;
     };
-
-    const hotPricesModels = useMemo(() => {
-        return [...phones].sort((a, b) => (b.fullPrice - b.price) - (a.fullPrice - a.price));
-    }, []);
-
 
     useEffect(() => {
         // setIsLoading(true);
@@ -269,7 +263,6 @@ export const ItemCardPage:React.FC = () => {
                             </div>
                         </div>
                         <CardCarousel
-                            phones={hotPricesModels}
                             title={'You may also like'}
                             dataCyID={2}
                         />
